@@ -18,5 +18,3 @@ func _take_damage(amount: float) -> void:
 	else:
 		health -= amount
 		health_bar.value = health
-	
-	
