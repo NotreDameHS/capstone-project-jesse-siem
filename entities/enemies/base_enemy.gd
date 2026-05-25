@@ -9,18 +9,18 @@ class_name Enemy extends Area2D
 
 var player = null # player node
 var direction := Vector2(0, 0)
-var enemy_speed := 50.0  # enemy speed
+var enemy_speed := 20.0  # enemy speed
 
 
 func _ready() -> void:
 	health = max_health
 	health_bar.max_value = max_health
 	health_bar.value = health
-	player = get_tree().current_scene.get_nodes_in_group("Player")
+	player = get_tree().get_first_node_in_group("Player")
 	timer.wait_time = 1.0
 	timer.start()
 
-func _physics_proccess(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if player == null:
 		return
 		
@@ -38,7 +38,7 @@ func shoot_at_player() -> void:
 	var projectile = projectile_scene.instantiate()
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = global_position
-
+	
 
 func _take_damage(amount: float) -> void:
 	# updates enemy health and health_bar UI
@@ -54,3 +54,4 @@ func _take_damage(amount: float) -> void:
 func _on_timer_timeout() -> void:
 	# call shoot method when timer finishes
 	shoot_at_player()
+	
