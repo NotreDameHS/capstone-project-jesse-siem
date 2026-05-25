@@ -32,8 +32,12 @@ func _physics_proccess(delta: float) -> void:
 
 
 func shoot_at_player() -> void:
+	if player == null:
+		return
 	
-	pass
+	var projectile = projectile_scene.instantiate()
+	get_tree().current_scene.add_child(projectile)
+	projectile.global_position = global_position
 
 
 func _take_damage(amount: float) -> void:
