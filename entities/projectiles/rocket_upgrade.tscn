@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bst104pb6l4rc"]
+
+[ext_resource type="PackedScene" uid="uid://dxp7p4ufg4ibd" path="res://entities/projectiles/projectile.tscn" id="1_fnnky"]
+[ext_resource type="Script" uid="uid://wkj4ygyes6x8" path="res://entities/projectiles/rocket_upgrade.gd" id="2_4qc2y"]
+[ext_resource type="Texture2D" uid="uid://b5xuoh7bctq6f" path="res://entities/projectiles/rocket_upgrade.png" id="2_kmyyr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4qc2y"]
+radius = 8.987665
+height = 42.0
+
+[node name="RocketUpgrade" unique_id=509468964 instance=ExtResource("1_fnnky")]
+script = ExtResource("2_4qc2y")
+turning_speed = 4.0
+search_radius = 250.0
+damage = 100
+speed = 400
+
+[node name="Sprite2D" parent="." index="0" unique_id=722218294]
+texture = ExtResource("2_kmyyr")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]
+position = Vector2(-1, 0)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_4qc2y")

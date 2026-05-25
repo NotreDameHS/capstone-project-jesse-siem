@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://qmo03pg7v4cu"]
+
+[ext_resource type="Script" uid="uid://2p5xcnwircbx" path="res://entities/collectibles/base_powerup.gd" id="1_nnupk"]
+[ext_resource type="Texture2D" uid="uid://bi2am20fvv4s0" path="res://entities/collectibles/pill_red.png" id="2_plkjl"]
+
+[node name="BasePowerup" type="Area2D" unique_id=557551080]
+script = ExtResource("1_nnupk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1150557103]
+texture = ExtResource("2_plkjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=855265141]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
