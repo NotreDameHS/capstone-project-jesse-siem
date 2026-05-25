@@ -1,4 +1,4 @@
-extends Area2D
+class_name Enemy extends Area2D
 # 
 @export var max_health := 100.0
 @export var health = max_health
@@ -27,21 +27,22 @@ func _physics_proccess(delta: float) -> void:
 	# Finds player and moves towards player
 	look_at(player.global_position)
 	direction = (player.global_position - global_position).normalized()
-	var velocity = (direction * enemy_speed)
-	global_position += (transform.x * velocity * delta)
+	var velocity := (direction * enemy_speed)
+	global_position += (velocity * delta)
 
 
 func shoot_at_player() -> void:
 	if player == null:
 		return
-	
+	# Instantiate and adds projectile (bullet) to scene
 	var projectile = projectile_scene.instantiate()
 	get_tree().current_scene.add_child(projectile)
 	projectile.global_position = global_position
 
 
 func _take_damage(amount: float) -> void:
-	if amount >= health:
+	# updates enemy health and health_bar UI
+	if (health - amount) <= 0:
 		health = 0.0
 		health_bar.value = health
 		queue_free()
@@ -51,4 +52,5 @@ func _take_damage(amount: float) -> void:
 
 
 func _on_timer_timeout() -> void:
+	# call shoot method when timer finishes
 	shoot_at_player()
