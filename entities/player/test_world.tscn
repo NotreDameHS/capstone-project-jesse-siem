@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b7kjwoxrkayr3"]
+
+[ext_resource type="PackedScene" uid="uid://c4qcct1bwxalu" path="res://entities/player/player.tscn" id="1_7w68n"]
+[ext_resource type="Texture2D" uid="uid://bte52cemoehp3" path="res://entities/player/space_background.png" id="1_8cqqq"]
+
+[node name="Test_world" type="Node2D" unique_id=1711498285]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1706263967]
+position = Vector2(604.50006, 300.49997)
+scale = Vector2(3.8876956, 3.786133)
+texture = ExtResource("1_8cqqq")
+
+[node name="Player" parent="." unique_id=843083428 instance=ExtResource("1_7w68n")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1713305068]
+position = Vector2(616, 297)
+position_smoothing_enabled = true
