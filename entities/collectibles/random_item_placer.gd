@@ -1,22 +1,28 @@
 extends Node2D
 
-var item_scenes := [
-	preload("res://entities/collectibles/health_boost.tscn"), 
-	preload("res://entities/collectibles/weapon_upgrade.tscn")
-]	
-	
+# Cache the preloaded scenes for better performance
+var item_scenes: Array[PackedScene] = [
+	preload("res://entities/collectibles/health_boost.tscn"),
+	preload("res://entities/collectibles/weapon_upgrade.tscn"),
+	preload("res://entities/collectibles/invisible_shield.tscn")
+]
+
 func _ready() -> void:
 	pass
 
 func _on_timer_timeout() -> void:
+	# 1. Pick and instantiate a random scene
 	var random_item_scene: PackedScene = item_scenes.pick_random()
-	var item_instance := random_item_scene.instantiate()
+	var item_instance: Node2D = random_item_scene.instantiate()
 	add_child(item_instance)
 	
-	var viewport_size := get_viewport_rect().size
+	# 2. Get the viewport bounds
+	var viewport_size: Vector2 = get_viewport_rect().size
 	
-	var random_position := Vector2(0.0,0.0)
-	random_position.x = randf_range(0.0, viewport_size.x)
-	random_position.y = randf_range(0.0, viewport_size.y)
+	# 3. Generate and assign a random position
+	var random_position := Vector2(
+		randf_range(0.0, viewport_size.x),
+		randf_range(0.0, viewport_size.y)
+	)
 	
 	item_instance.position = random_position
