@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://qmo03pg7v4cu"]
+
+[ext_resource type="Script" uid="uid://2p5xcnwircbx" path="res://entities/collectibles/base_powerup.gd" id="1_2civ8"]
+
+[node name="Powerup" type="Area2D" unique_id=509468964]
+monitorable = false
+script = ExtResource("1_2civ8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=722218294]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810347254]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

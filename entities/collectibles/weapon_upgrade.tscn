@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d3cyikxgaw67x"]
+
+[ext_resource type="PackedScene" uid="uid://qmo03pg7v4cu" path="res://entities/collectibles/base_powerup.tscn" id="1_ylk0c"]
+[ext_resource type="Script" uid="uid://2p5xcnwircbx" path="res://entities/collectibles/base_powerup.gd" id="2_ng807"]
+[ext_resource type="Texture2D" uid="uid://cdj3v5fp6urgb" path="res://entities/collectibles/weaponUpgrade.png" id="2_y820c"]
+
+[node name="Weapon Upgrade" unique_id=509468964 groups=["Weapon"] instance=ExtResource("1_ylk0c")]
+collision_layer = 2
+script = ExtResource("2_ng807")
+
+[node name="Sprite2D" parent="." index="0" unique_id=722218294]
+texture = ExtResource("2_y820c")

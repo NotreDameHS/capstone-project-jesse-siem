@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cbibpxyj61f77"]
+
+[ext_resource type="PackedScene" uid="uid://qmo03pg7v4cu" path="res://entities/collectibles/base_powerup.tscn" id="1_qd2vy"]
+
+[node name="Invisible Shield" unique_id=509468964 instance=ExtResource("1_qd2vy")]
