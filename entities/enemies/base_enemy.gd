@@ -49,7 +49,15 @@ func _take_damage(amount: float) -> void:
 	else:
 		health -= amount
 		health_bar.value = health
-
+		# instantiating damage_pop scene
+		var damage_indicator: Node2D = preload("res://ui/damage_popup.tscn").instantiate()
+		get_tree().current_scene.add_child(damage_indicator)
+		damage_indicator.global_position = global_position
+		damage_indicator.display_damage(amount)
+		
+		
+		
+		
 
 func _on_timer_timeout() -> void:
 	# call shoot method when timer finishes
