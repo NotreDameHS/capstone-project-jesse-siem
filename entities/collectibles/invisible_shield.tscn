@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gveqv"]
 radius = 254.04921
 
-[node name="Invisible Shield" unique_id=509468964 instance=ExtResource("1_qd2vy")]
+[node name="Invisible Shield" unique_id=509468964 groups=["Shield"] instance=ExtResource("1_qd2vy")]
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294]
 scale = Vector2(0.2, 0.2)
