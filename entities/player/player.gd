@@ -5,8 +5,9 @@ var max_speed := normal_speed
 var velocity := Vector2(0, 0)
 var steering_factor := 10.0
 
-@export var projectile_scene: PackedScene
 
+@export var projectile_scene: PackedScene
+var mouse_global_pos: Vector2
 
 
 func _ready() -> void:
@@ -14,11 +15,15 @@ func _ready() -> void:
 	
 	
 func _process(delta: float) -> void:
+	
+	rotation += deg_to_rad(90)
+	var  mouse_global_pos = get_global_mouse_position()
+	look_at(mouse_global_pos)
+	
 	var direction := Vector2(0, 0)
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
 	
-
 	
 	if direction.length() > 1.0:
 		direction = direction.normalized()
@@ -27,10 +32,6 @@ func _process(delta: float) -> void:
 	var steering_vector := (desired_velocity - velocity)
 	velocity += (steering_vector * steering_factor * delta)
 	global_position += (velocity * delta)
-	
-	if velocity.length() > 0.0:
-		get_node("Sprite2D").rotation = velocity.angle()
-	
 	
 	
 	

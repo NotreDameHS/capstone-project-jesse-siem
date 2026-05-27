@@ -13,5 +13,4 @@ texture = ExtResource("1_8cqqq")
 [node name="Player" parent="." unique_id=843083428 instance=ExtResource("1_7w68n")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1713305068]
-position = Vector2(616, 297)
 position_smoothing_enabled = true
