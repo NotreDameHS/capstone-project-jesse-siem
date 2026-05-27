@@ -4,10 +4,11 @@ var normal_speed := 900.0
 var max_speed := normal_speed
 var velocity := Vector2(0, 0)
 var steering_factor := 10.0
+var mouse_global_pos: Vector2
 
 
 @export var projectile_scene: PackedScene
-var mouse_global_pos: Vector2
+@onready var spawn_point = $Marker2D
 
 
 func _ready() -> void:
@@ -43,8 +44,10 @@ func _physics_process(delta: float) -> void:
 	
 func shoot() -> void:
 	var projectile = projectile_scene.instantiate()
+	projectile.global_position = spawn_point.global_position
+	projectile.global_rotation = global_rotation
 	get_tree().current_scene.add_child(projectile)
-	projectile.global_position = global_position
+	
 	
 
 	

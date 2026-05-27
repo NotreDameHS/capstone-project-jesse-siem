@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://crrwte8mb06hp" path="res://entities/player/ship.png" id="1_symyc"]
 [ext_resource type="PackedScene" uid="uid://dxp7p4ufg4ibd" path="res://entities/projectiles/projectile.tscn" id="2_sglur"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sglur"]
+radius = 56.142673
+
 [node name="Player" type="Area2D" unique_id=843083428 groups=["Player"]]
 script = ExtResource("1_abrql")
 projectile_scene = ExtResource("2_sglur")
@@ -12,5 +15,9 @@ projectile_scene = ExtResource("2_sglur")
 texture = ExtResource("1_symyc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694770047]
+shape = SubResource("CircleShape2D_sglur")
 
 [node name="Timer" type="Timer" parent="." unique_id=1982847277]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1287107489]
+position = Vector2(25, 0)
