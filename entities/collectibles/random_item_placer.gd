@@ -3,7 +3,6 @@ extends Node2D
 # Cache the preloaded scenes for better performance
 var item_scenes: Array[PackedScene] = [
 	preload("res://entities/collectibles/health_boost.tscn"),
-	preload("res://entities/collectibles/weapon_upgrade.tscn"),
 	preload("res://entities/collectibles/invisible_shield.tscn")
 ]
 
