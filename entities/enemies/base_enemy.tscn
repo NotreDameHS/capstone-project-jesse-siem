@@ -21,7 +21,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="Base Enemy" type="Area2D" unique_id=1876794493]
+[node name="Base Enemy" type="Area2D" unique_id=1876794493 groups=["Enemies"]]
 script = ExtResource("1_nwpjw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1157652375]
