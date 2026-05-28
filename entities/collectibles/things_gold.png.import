@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0oati7pkvmph"
-path="res://.godot/imported/bullet.png-bf903b661d62e908e84c254c5eda70e7.ctex"
+uid="uid://d3u3phi1g2yq0"
+path="res://.godot/imported/things_gold.png-8ae74d2cd450c053bd27863da024c49a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/projectiles/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-bf903b661d62e908e84c254c5eda70e7.ctex"]
+source_file="res://entities/collectibles/things_gold.png"
+dest_files=["res://.godot/imported/things_gold.png-8ae74d2cd450c053bd27863da024c49a.ctex"]
 
 [params]
 

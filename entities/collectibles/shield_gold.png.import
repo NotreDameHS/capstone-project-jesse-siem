@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bimatodg8la0a"
-path="res://.godot/imported/shield.png-641601ad101ee241484a038c9483fb3d.ctex"
+uid="uid://dgwdw0sdx8j6d"
+path="res://.godot/imported/shield_gold.png-1b8e37a3e38d34c66524377b92545327.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/collectibles/shield.png"
-dest_files=["res://.godot/imported/shield.png-641601ad101ee241484a038c9483fb3d.ctex"]
+source_file="res://entities/collectibles/shield_gold.png"
+dest_files=["res://.godot/imported/shield_gold.png-1b8e37a3e38d34c66524377b92545327.ctex"]
 
 [params]
 

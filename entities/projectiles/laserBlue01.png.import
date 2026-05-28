@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdj3v5fp6urgb"
-path="res://.godot/imported/weaponUpgrade.png-965c2c86dd85c8e7a2250b0a8e450b74.ctex"
+uid="uid://brtscj8pmho67"
+path="res://.godot/imported/laserBlue01.png-b4eb4bcdd1d869fb64dff037eb66c284.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/collectibles/weaponUpgrade.png"
-dest_files=["res://.godot/imported/weaponUpgrade.png-965c2c86dd85c8e7a2250b0a8e450b74.ctex"]
+source_file="res://entities/projectiles/laserBlue01.png"
+dest_files=["res://.godot/imported/laserBlue01.png-b4eb4bcdd1d869fb64dff037eb66c284.ctex"]
 
 [params]
 

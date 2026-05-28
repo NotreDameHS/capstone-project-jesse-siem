@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dq3d6f65um3t1"]
+
+[ext_resource type="PackedScene" uid="uid://dxp7p4ufg4ibd" path="res://entities/projectiles/projectile.tscn" id="1_yw40l"]
+[ext_resource type="Texture2D" uid="uid://brtscj8pmho67" path="res://entities/projectiles/laserBlue01.png" id="2_7uway"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knm8y"]
+radius = 5.0
+height = 54.0
+
+[node name="Base Laser" unique_id=509468964 instance=ExtResource("1_yw40l")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=722218294]
+texture = ExtResource("2_7uway")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]
+shape = SubResource("CapsuleShape2D_knm8y")
