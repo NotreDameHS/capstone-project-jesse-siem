@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://igsvxek4mw4k"
-path="res://.godot/imported/pill_red.png-9866bf2754c188be8a5505209757ec5e.ctex"
+uid="uid://bikgfji5h5mlg"
+path="res://.godot/imported/laserBlue03.png-d5c25b821ef3c52779c46ed4e4e7e254.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/collectibles/pill_red.png"
-dest_files=["res://.godot/imported/pill_red.png-9866bf2754c188be8a5505209757ec5e.ctex"]
+source_file="res://entities/projectiles/laserBlue03.png"
+dest_files=["res://.godot/imported/laserBlue03.png-d5c25b821ef3c52779c46ed4e4e7e254.ctex"]
 
 [params]
 

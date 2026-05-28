@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://cbibpxyj61f77"]
 
 [ext_resource type="PackedScene" uid="uid://qmo03pg7v4cu" path="res://entities/collectibles/base_powerup.tscn" id="1_qd2vy"]
-[ext_resource type="Texture2D" uid="uid://bimatodg8la0a" path="res://entities/collectibles/shield.png" id="2_t4e1k"]
+[ext_resource type="Texture2D" uid="uid://dgwdw0sdx8j6d" path="res://entities/collectibles/shield_gold.png" id="2_t4e1k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gveqv"]
-radius = 254.04921
+radius = 26.0
 
 [node name="Invisible Shield" unique_id=509468964 groups=["Shield"] instance=ExtResource("1_qd2vy")]
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_t4e1k")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]
+position = Vector2(-1, -4)
 shape = SubResource("CircleShape2D_gveqv")

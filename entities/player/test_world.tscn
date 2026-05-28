@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c4qcct1bwxalu" path="res://entities/player/player.tscn" id="1_7w68n"]
 [ext_resource type="Texture2D" uid="uid://bte52cemoehp3" path="res://entities/player/space_background.png" id="1_8cqqq"]
+[ext_resource type="PackedScene" uid="uid://dodtw1r4jacq" path="res://entities/collectibles/random_item_placer.tscn" id="1_fsqqj"]
 
 [node name="Test_world" type="Node2D" unique_id=1711498285]
 
@@ -9,6 +10,8 @@
 position = Vector2(604.50006, 300.49997)
 scale = Vector2(3.8876956, 3.786133)
 texture = ExtResource("1_8cqqq")
+
+[node name="RandomItemPlacer" parent="." unique_id=599528696 instance=ExtResource("1_fsqqj")]
 
 [node name="Player" parent="." unique_id=843083428 instance=ExtResource("1_7w68n")]
 

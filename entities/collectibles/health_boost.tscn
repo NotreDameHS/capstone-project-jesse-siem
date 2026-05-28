@@ -1,18 +1,20 @@
 [gd_scene format=3 uid="uid://dxd5f0phlnaix"]
 
 [ext_resource type="PackedScene" uid="uid://qmo03pg7v4cu" path="res://entities/collectibles/base_powerup.tscn" id="1_agr50"]
-[ext_resource type="Texture2D" uid="uid://bi2am20fvv4s0" path="res://entities/collectibles/pill_red.png" id="2_s3w67"]
+[ext_resource type="Texture2D" uid="uid://igsvxek4mw4k" path="res://entities/collectibles/pill_red.png" id="2_s3w67"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v37fs"]
-radius = 24.0
-height = 48.0
+radius = 17.0
+height = 36.34392
 
 [node name="Health" unique_id=509468964 groups=["Health"] instance=ExtResource("1_agr50")]
 collision_layer = 2
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_s3w67")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]
-position = Vector2(-1, -1)
+position = Vector2(-1, 0)
+skew = 0.49392816
 shape = SubResource("CapsuleShape2D_v37fs")
