@@ -9,7 +9,7 @@ var mouse_global_pos: Vector2
 
 @export var projectile_scene: PackedScene
 @onready var spawn_point = $Marker2D
-
+@onready var spawn_point_2 = $Marker2D2
 
 func _ready() -> void:
 	pass
@@ -17,7 +17,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	# Rotates ship 90 degrees to the right to make RIGHT = right
-	rotation += deg_to_rad(90)
+	#rotation += deg_to_rad(90)
 	
 	# Rotates ship to point towards mouse_global_position
 	var  mouse_global_pos = get_global_mouse_position()
@@ -46,7 +46,15 @@ func shoot() -> void:
 	var projectile = projectile_scene.instantiate()
 	projectile.global_position = spawn_point.global_position
 	projectile.global_rotation = global_rotation
+	
+	
+	var projectile_2 = projectile_scene.instantiate()
+	projectile_2.global_position = spawn_point_2.global_position
+	projectile_2.global_rotation = global_rotation
+	
+	
 	get_tree().current_scene.add_child(projectile)
+	get_tree().current_scene.add_child(projectile_2)
 	
 	
 
