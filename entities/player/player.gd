@@ -5,7 +5,8 @@ var max_speed := normal_speed
 var velocity := Vector2(0, 0)
 var steering_factor := 10.0
 var mouse_global_pos: Vector2
-
+var shooter_1_state: bool = true
+var shooter_2_state: bool = false
 
 @export var projectile_scene: PackedScene
 @onready var spawn_point = $Marker2D
@@ -43,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 func shoot() -> void:
+	
 	var projectile = projectile_scene.instantiate()
 	projectile.global_position = spawn_point.global_position
 	projectile.global_rotation = global_rotation
@@ -53,8 +55,18 @@ func shoot() -> void:
 	projectile_2.global_rotation = global_rotation
 	
 	
-	get_tree().current_scene.add_child(projectile)
-	get_tree().current_scene.add_child(projectile_2)
+	# Alternate shooting for base shooting level
+	if shooter_1_state == true and shooter_2_state == false:
+		get_tree().current_scene.add_child(projectile)
+		shooter_1_state = false
+		shooter_2_state = true
+	
+	elif shooter_2_state == true and shooter_1_state == false:
+		get_tree().current_scene.add_child(projectile_2)
+		shooter_2_state = false
+		shooter_1_state = true
+		
+	
 	
 	
 

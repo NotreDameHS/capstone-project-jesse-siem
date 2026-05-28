@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdbkdy088g4uq"]
 
 [ext_resource type="Script" uid="uid://cbwit6mjj1sdd" path="res://entities/enemies/base_enemy.gd" id="1_nwpjw"]
+[ext_resource type="PackedScene" uid="uid://dq3d6f65um3t1" path="res://entities/projectiles/base_laser.tscn" id="2_o6qfc"]
 [ext_resource type="Texture2D" uid="uid://bxxoj0bsejy6s" path="res://entities/enemies/mob4 copy.png" id="2_ocmy6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ocmy6"]
@@ -23,6 +24,8 @@ corner_radius_bottom_left = 8
 
 [node name="Base Enemy" type="Area2D" unique_id=1876794493 groups=["Enemies"]]
 script = ExtResource("1_nwpjw")
+projectile_scene = ExtResource("2_o6qfc")
+enemy_speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1157652375]
 texture = ExtResource("2_ocmy6")
