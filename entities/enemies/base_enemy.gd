@@ -9,7 +9,7 @@ class_name Enemy extends Area2D
 
 var player = null # player node
 var direction := Vector2(0, 0)
-var enemy_speed := 20.0  # enemy speed
+@export var enemy_speed := 20.0  # enemy speed
 
 
 func _ready() -> void:

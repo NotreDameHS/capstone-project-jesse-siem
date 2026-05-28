@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bst104pb6l4rc"]
 
 [ext_resource type="PackedScene" uid="uid://dxp7p4ufg4ibd" path="res://entities/projectiles/projectile.tscn" id="1_fnnky"]
-[ext_resource type="Script" uid="uid://wkj4ygyes6x8" path="res://entities/projectiles/rocket_upgrade.gd" id="2_4qc2y"]
+[ext_resource type="Script" path="res://entities/projectiles/rocket_upgrade.gd" id="2_4qc2y"]
 [ext_resource type="Texture2D" uid="uid://b5xuoh7bctq6f" path="res://entities/projectiles/rocket_upgrade.png" id="2_kmyyr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4qc2y"]

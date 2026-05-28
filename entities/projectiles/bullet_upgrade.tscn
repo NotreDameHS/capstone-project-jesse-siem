@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ddv2gjgiwndy2"]
+
+[ext_resource type="PackedScene" uid="uid://dxp7p4ufg4ibd" path="res://entities/projectiles/projectile.tscn" id="1_1mmnq"]
+[ext_resource type="Texture2D" path="res://entities/projectiles/bullet.png" id="2_i7w0q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bs062"]
+
+[node name="BulletUpgrade" unique_id=509468964 instance=ExtResource("1_1mmnq")]
+damage = 100
+speed = 300
+
+[node name="Sprite2D" parent="." index="0" unique_id=722218294]
+texture = ExtResource("2_i7w0q")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]
+shape = SubResource("CircleShape2D_bs062")
