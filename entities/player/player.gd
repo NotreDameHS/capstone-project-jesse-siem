@@ -55,6 +55,14 @@ func shoot() -> void:
 	projectile_2.global_rotation = global_rotation
 	
 	
+	var dir = Vector2.RIGHT.rotated(global_rotation)
+	projectile.direction = dir
+	projectile.rotation = dir.angle()
+	
+	var dir2 = Vector2.RIGHT.rotated(global_rotation)
+	projectile_2.direction = dir2
+	projectile_2.rotation = dir2.angle()
+	
 	# Alternate shooting for base shooting level
 	if shooter_1_state == true and shooter_2_state == false:
 		get_tree().current_scene.add_child(projectile)

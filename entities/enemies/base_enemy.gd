@@ -5,7 +5,7 @@ class_name Enemy extends Area2D
 @onready var health_bar := $UI/HealthBar
 @export var projectile_scene: PackedScene
 @onready var timer = $Timer
-
+@onready var spawn_point = $Marker2D
 
 var player = null # player node
 var direction := Vector2(0, 0)
@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 		
 	# Finds player and moves towards player
 	look_at(player.global_position)
+	rotation += deg_to_rad(90)
 	direction = (player.global_position - global_position).normalized()
 	var velocity := (direction * enemy_speed)
 	global_position += (velocity * delta)
@@ -37,7 +38,9 @@ func shoot_at_player() -> void:
 	# Instantiate and adds projectile (bullet) to scene
 	var projectile = projectile_scene.instantiate()
 	get_tree().current_scene.add_child(projectile)
-	projectile.global_position = global_position
+	projectile.global_position = spawn_point.global_position
+	var direction = (player.global_position - global_position).normalized()
+	projectile.direction = direction
 	
 
 func _take_damage(amount: float) -> void:

@@ -4,9 +4,11 @@ class_name Projectile extends Area2D
 @export var max_distance := 1000
 @export var speed := 200
 var _distance_traveled := 0 
+var direction := Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta
+	rotation = direction.angle()
 	
 	_distance_traveled += speed * delta
 	
