@@ -1,4 +1,4 @@
-extends Area2D
+class_name Player extends Area2D
 
 var normal_speed := 900.0
 var max_speed := normal_speed
@@ -7,6 +7,8 @@ var steering_factor := 10.0
 var mouse_global_pos: Vector2
 var shooter_1_state: bool = true
 var shooter_2_state: bool = false
+var player_health := 100.0
+
 
 @export var projectile_scene: PackedScene
 @onready var spawn_point = $Marker2D
@@ -75,6 +77,12 @@ func shoot() -> void:
 		shooter_1_state = true
 		
 	
+func _take_damage(amount: float) -> void:
+	if (amount - player_health) <= 0.0:
+		player_health = 0.0
+	else:
+		player_health -= amount
+		print(player_health)
 	
 	
 

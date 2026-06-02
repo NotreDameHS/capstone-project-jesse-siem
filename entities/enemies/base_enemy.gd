@@ -24,13 +24,14 @@ func _physics_process(delta: float) -> void:
 	if player == null:
 		return
 		
+	
 	# Finds player and moves towards player
 	look_at(player.global_position)
 	rotation += deg_to_rad(90)
 	direction = (player.global_position - global_position).normalized()
 	var velocity := (direction * enemy_speed)
 	global_position += (velocity * delta)
-
+	
 
 func shoot_at_player() -> void:
 	if player == null:
