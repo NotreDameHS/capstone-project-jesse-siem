@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cce5fiaxo57k7"]
+
+[ext_resource type="PackedScene" uid="uid://uohabndqmqe1" path="res://entities/projectiles/laser_upgrade.tscn" id="1_63oa4"]
+[ext_resource type="Texture2D" uid="uid://cttfdshuvereb" path="res://entities/projectiles/laserGreen04.png" id="2_k1chh"]
+
+[node name="MaxLaserUpgrade" unique_id=509468964 instance=ExtResource("1_63oa4")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=722218294]
+texture = ExtResource("2_k1chh")
