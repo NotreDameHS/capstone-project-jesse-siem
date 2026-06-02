@@ -7,15 +7,18 @@ var steering_factor := 10.0
 var mouse_global_pos: Vector2
 var shooter_1_state: bool = true
 var shooter_2_state: bool = false
-var player_health := 100.0
-
+var player_max_health := 100.0
+var player_health := player_max_health
+var kill_count: int = 0
 
 @export var projectile_scene: PackedScene
 @onready var spawn_point = $Marker2D
 @onready var spawn_point_2 = $Marker2D2
 
 func _ready() -> void:
-	pass
+	kill_count = 0
+	player_health = player_max_health
+	
 	
 	
 func _process(delta: float) -> void:
@@ -28,6 +31,8 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+	
+	
 	
 func _physics_process(delta: float) -> void:
 	# Movement for ship
@@ -86,6 +91,6 @@ func _take_damage(amount: float) -> void:
 		print(player_health)
 	
 	
-
-	
+func kill_amount(kill_count: int) -> void:
+	pass
 	

@@ -25,7 +25,7 @@ func _explode() -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Enemy:
-		area._take_damage(25.0)
+		area._take_damage(15.0)
 		_explode()
 	else:
 		pass
