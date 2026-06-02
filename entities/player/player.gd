@@ -1,7 +1,7 @@
 class_name Player extends Area2D
 
 var normal_speed := 900.0
-var max_speed := normal_speed
+@export var max_speed := normal_speed
 var velocity := Vector2(0, 0)
 var steering_factor := 10.0
 var mouse_global_pos: Vector2

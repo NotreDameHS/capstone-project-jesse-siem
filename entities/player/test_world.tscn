@@ -15,10 +15,11 @@ texture = ExtResource("1_8cqqq")
 [node name="RandomItemPlacer" parent="." unique_id=599528696 instance=ExtResource("1_fsqqj")]
 
 [node name="Player" parent="." unique_id=843083428 instance=ExtResource("1_7w68n")]
+max_speed = 850.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1713305068]
 position_smoothing_enabled = true
 
 [node name="Round 1 Enemy" parent="." unique_id=1876794493 instance=ExtResource("4_0a782")]
 position = Vector2(208, 101)
-enemy_speed = 100.0
+enemy_speed = 250.0
