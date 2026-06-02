@@ -1,18 +1,20 @@
 [gd_scene format=3 uid="uid://wkwcwmp63uih"]
 
-[ext_resource type="PackedScene" uid="uid://dxp7p4ufg4ibd" path="res://entities/projectiles/projectile.tscn" id="1_0g2ms"]
+[ext_resource type="PackedScene" uid="uid://bt46ka2gvoal5" path="res://entities/projectiles/enemy_projectile.tscn" id="1_0g2ms"]
 [ext_resource type="Texture2D" uid="uid://ccemeb65xkrjc" path="res://entities/projectiles/laserRed01.png" id="2_l7inr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7inr"]
 radius = 5.0
-height = 54.0
+height = 56.0
 
-[node name="EnemyLaser" unique_id=509468964 instance=ExtResource("1_0g2ms")]
+[node name="Enemy_laser" unique_id=1691801412 instance=ExtResource("1_0g2ms")]
 
-[node name="Sprite2D" parent="." index="0" unique_id=722218294]
+[node name="Sprite2D" parent="." index="0" unique_id=773111218]
 rotation = 1.5707964
 texture = ExtResource("2_l7inr")
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]
+[node name="CollisionShape2D" parent="." index="1" unique_id=1526864810]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_l7inr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

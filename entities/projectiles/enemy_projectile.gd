@@ -17,3 +17,14 @@ func _physics_process(delta: float) -> void:
 	
 func _explode() -> void:
 	queue_free()	
+
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is Player:
+		area._take_damage(25.0)
+		_explode()
+	else:
+		pass
+	
+	

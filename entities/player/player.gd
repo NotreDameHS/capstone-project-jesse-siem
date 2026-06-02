@@ -78,8 +78,9 @@ func shoot() -> void:
 		
 	
 func _take_damage(amount: float) -> void:
-	if (amount - player_health) <= 0.0:
+	if (player_health - amount) <= 0.0:
 		player_health = 0.0
+		
 	else:
 		player_health -= amount
 		print(player_health)
