@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cbwit6mjj1sdd" path="res://entities/enemies/base_enemy.gd" id="1_nwpjw"]
 [ext_resource type="PackedScene" uid="uid://dq3d6f65um3t1" path="res://entities/projectiles/base_laser.tscn" id="2_o6qfc"]
-[ext_resource type="Texture2D" uid="uid://bxxoj0bsejy6s" path="res://entities/enemies/mob4 copy.png" id="2_ocmy6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ocmy6"]
 radius = 50.0
@@ -28,7 +27,6 @@ projectile_scene = ExtResource("2_o6qfc")
 enemy_speed = 300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1157652375]
-texture = ExtResource("2_ocmy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1327448658]
 position = Vector2(0, -1)

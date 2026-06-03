@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bceiqa78rhjv4"]
+
+[ext_resource type="Script" uid="uid://x2bptt5ytwp1" path="res://entities/enemies/enemy_spawner.gd" id="1_dfhm5"]
+[ext_resource type="Texture2D" uid="uid://om152n2clji2" path="res://entities/enemies/ufoRed.png" id="2_jwcb1"]
+
+[node name="Enemy Spawner" type="Node2D" unique_id=53444923]
+script = ExtResource("1_dfhm5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2029839213]
+texture = ExtResource("2_jwcb1")
+
+[node name="Timer" type="Timer" parent="." unique_id=1977209662]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=502614611]

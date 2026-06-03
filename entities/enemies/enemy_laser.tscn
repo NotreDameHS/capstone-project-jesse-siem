@@ -8,7 +8,6 @@ radius = 5.0
 height = 56.0
 
 [node name="Enemy_laser" unique_id=1691801412 instance=ExtResource("1_0g2ms")]
-speed = 800
 
 [node name="Sprite2D" parent="." index="0" unique_id=773111218]
 rotation = 1.5707964

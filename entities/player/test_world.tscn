@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bte52cemoehp3" path="res://entities/player/space_background.png" id="1_8cqqq"]
 [ext_resource type="PackedScene" uid="uid://dodtw1r4jacq" path="res://entities/collectibles/random_item_placer.tscn" id="1_fsqqj"]
 [ext_resource type="PackedScene" uid="uid://di644mrhk2gv0" path="res://entities/enemies/round_1_enemy.tscn" id="4_0a782"]
+[ext_resource type="PackedScene" uid="uid://wkwcwmp63uih" path="res://entities/enemies/enemy_laser.tscn" id="5_2rjw7"]
 
 [node name="Test_world" type="Node2D" unique_id=1711498285]
 
@@ -22,4 +23,5 @@ position_smoothing_enabled = true
 
 [node name="Round 1 Enemy" parent="." unique_id=1876794493 instance=ExtResource("4_0a782")]
 position = Vector2(208, 101)
+projectile_scene = ExtResource("5_2rjw7")
 enemy_speed = 250.0
