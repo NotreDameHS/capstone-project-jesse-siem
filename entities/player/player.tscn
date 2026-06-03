@@ -7,6 +7,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_sglur"]
 radius = 109.65856
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sglur"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bls4j"]
+bg_color = Color(0, 1, 0, 1)
+
 [node name="Player" type="Area2D" unique_id=843083428 groups=["Player"]]
 script = ExtResource("1_abrql")
 projectile_scene = ExtResource("2_sglur")
@@ -27,3 +37,20 @@ position = Vector2(55, 28)
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=331788950]
 position = Vector2(55, -27)
+
+[node name="UI" type="Control" parent="." unique_id=721947722]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="ProgressBar" parent="UI" unique_id=1689131620]
+layout_mode = 0
+offset_left = -224.0
+offset_top = -3.0
+offset_right = -106.0
+offset_bottom = 10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_sglur")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bls4j")
+value = 50.0
+show_percentage = false
