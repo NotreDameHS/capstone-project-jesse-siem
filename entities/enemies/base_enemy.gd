@@ -6,11 +6,13 @@ class_name Enemy extends Area2D
 @export var projectile_scene: PackedScene
 @onready var timer = $Timer
 @onready var spawn_point = $Marker2D
+@export var enemy_speed := 20.0  # enemy speed
+
+# Signal
+signal enemy_died
 
 var player = null # player node
 var direction := Vector2(0, 0)
-@export var enemy_speed := 20.0  # enemy speed
-
 
 func _ready() -> void:
 	health = max_health
@@ -49,6 +51,7 @@ func _take_damage(amount: float) -> void:
 	if (health - amount) <= 0:
 		health = 0.0
 		health_bar.value = health
+		enemy_died.emit()
 		queue_free()
 	else:
 		health -= amount
