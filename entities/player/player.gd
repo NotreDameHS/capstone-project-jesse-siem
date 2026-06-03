@@ -14,12 +14,14 @@ var kill_count: int = 0
 @export var projectile_scene: PackedScene
 @onready var spawn_point = $Marker2D
 @onready var spawn_point_2 = $Marker2D2
+@onready var health_bar = $UI/HealthBar
+@onready var ui_node = $UI
 
 func _ready() -> void:
 	kill_count = 0
 	player_health = player_max_health
-	
-	
+	health_bar.max_value = player_max_health
+	health_bar.value = player_health
 	
 func _process(delta: float) -> void:
 	# Rotates ship 90 degrees to the right to make RIGHT = right
@@ -48,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	var steering_vector := (desired_velocity - velocity)
 	velocity += (steering_vector * steering_factor * delta)
 	global_position += (velocity * delta)
-	
+	ui_node.rotation = -global_rotation
 	
 func shoot() -> void:
 	
@@ -85,9 +87,11 @@ func shoot() -> void:
 func _take_damage(amount: float) -> void:
 	if (player_health - amount) <= 0.0:
 		player_health = 0.0
+		#GameManager.show_end_screen("Game Over")
 		
 	else:
 		player_health -= amount
+		health_bar.value = player_health
 		print(player_health)
 	
 	
