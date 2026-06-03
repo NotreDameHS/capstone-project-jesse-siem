@@ -7,7 +7,6 @@ var max_enemy_spawns := 5
 @onready var timer := $Timer
 @onready var spawn_point := $Marker2D
 var enemies_spawned := 0
-#var spawn_wait_time := 2.0
 
 
 func _ready() -> void:
@@ -15,6 +14,7 @@ func _ready() -> void:
 	
 
 func spawn_enemy() -> void:
+	timer.wait_time = 5.0
 	var enemy_round_1 = round_1_enemies.instantiate()
 	enemy_round_1.global_position = spawn_point.global_position
 	get_tree().current_scene.add_child(enemy_round_1)
