@@ -87,7 +87,7 @@ func shoot() -> void:
 func _take_damage(amount: float) -> void:
 	if (player_health - amount) <= 0.0:
 		player_health = 0.0
-		GameManager.show_end_screen("Game Over")
+		#GameManager.show_end_screen("Game Over")
 		
 	else:
 		player_health -= amount
