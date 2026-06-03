@@ -12,6 +12,7 @@ var current_round := 1
 
 
 func _ready() -> void:
+	timer.wait_time = 5.0
 	timer.start()
 	enemies_spawned = 0
 	enemies_killed = 0
@@ -21,7 +22,7 @@ func _process(delta: float) -> void:
 	pass
 
 func spawn_enemy() -> void:
-	timer.wait_time = 5.0
+	
 	
 	if current_round == 1:
 		var enemy_round_1 = round_1_enemies.instantiate()

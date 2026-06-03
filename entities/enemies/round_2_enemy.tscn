@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://c78f4cmtoevq0"]
 
 [ext_resource type="PackedScene" uid="uid://bdbkdy088g4uq" path="res://entities/enemies/base_enemy.tscn" id="1_wxlce"]
+[ext_resource type="PackedScene" uid="uid://wkwcwmp63uih" path="res://entities/enemies/enemy_laser.tscn" id="2_3701d"]
 [ext_resource type="Texture2D" uid="uid://bqgkeydmns2t6" path="res://entities/enemies/playerShip2_red.png" id="2_yu1r8"]
 
 [node name="Round 2 Enemy" unique_id=1876794493 instance=ExtResource("1_wxlce")]
+projectile_scene = ExtResource("2_3701d")
 
 [node name="Sprite2D" parent="." index="0" unique_id=1157652375]
 texture = ExtResource("2_yu1r8")
