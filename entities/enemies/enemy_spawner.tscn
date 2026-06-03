@@ -10,5 +10,9 @@ script = ExtResource("1_dfhm5")
 texture = ExtResource("2_jwcb1")
 
 [node name="Timer" type="Timer" parent="." unique_id=1977209662]
+wait_time = 2.0
+autostart = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=502614611]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
