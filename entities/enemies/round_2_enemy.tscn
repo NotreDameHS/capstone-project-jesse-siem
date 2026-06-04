@@ -2,22 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://bdbkdy088g4uq" path="res://entities/enemies/base_enemy.tscn" id="1_wxlce"]
 [ext_resource type="PackedScene" uid="uid://wkwcwmp63uih" path="res://entities/enemies/enemy_laser.tscn" id="2_3701d"]
-[ext_resource type="Texture2D" uid="uid://bqgkeydmns2t6" path="res://entities/enemies/playerShip2_red.png" id="2_yu1r8"]
+[ext_resource type="Texture2D" uid="uid://dnn4bsyuipu4k" path="res://entities/enemies/ship_sidesA.png" id="3_3701d"]
 
 [node name="Round 2 Enemy" unique_id=1876794493 instance=ExtResource("1_wxlce")]
 projectile_scene = ExtResource("2_3701d")
+enemy_speed = 500.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1157652375]
-texture = ExtResource("2_yu1r8")
+texture = ExtResource("3_3701d")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1327448658]
 position = Vector2(-1, 5)
 
 [node name="HealthBar" parent="UI" parent_id_path=PackedInt32Array(562304321) index="0" unique_id=988119586]
-offset_left = -48.0
-offset_top = 40.0
-offset_right = 50.0
-offset_bottom = 49.0
+offset_top = 73.0
+offset_bottom = 82.0
 
 [node name="Marker2D" parent="." index="4" unique_id=2004310526]
 position = Vector2(0, -40)

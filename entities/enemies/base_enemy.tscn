@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dq3d6f65um3t1" path="res://entities/projectiles/base_laser.tscn" id="2_o6qfc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ocmy6"]
-radius = 50.0
-height = 100.0
+radius = 51.0
+height = 124.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20vb3"]
 bg_color = Color(0, 0, 0, 1)

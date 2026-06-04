@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://b7kjwoxrkayr3"]
 
+[ext_resource type="Texture2D" uid="uid://bbf7kuikxxq8x" path="res://assets/Background skywars.png" id="1_0a782"]
 [ext_resource type="PackedScene" uid="uid://c4qcct1bwxalu" path="res://entities/player/player.tscn" id="1_7w68n"]
-[ext_resource type="Texture2D" uid="uid://bte52cemoehp3" path="res://entities/player/space_background.png" id="1_8cqqq"]
 [ext_resource type="PackedScene" uid="uid://dodtw1r4jacq" path="res://entities/collectibles/random_item_placer.tscn" id="1_fsqqj"]
-[ext_resource type="PackedScene" path="res://entities/enemies/enemy_spawner.tscn" id="6_744pf"]
+[ext_resource type="PackedScene" uid="uid://bceiqa78rhjv4" path="res://entities/enemies/enemy_spawner.tscn" id="6_744pf"]
 
 [node name="Test_world" type="Node2D" unique_id=1711498285]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1706263967]
-position = Vector2(604.50006, 300.49997)
-scale = Vector2(3.8876956, 3.786133)
-texture = ExtResource("1_8cqqq")
+scale = Vector2(7, 7)
+texture = ExtResource("1_0a782")
 
 [node name="RandomItemPlacer" parent="." unique_id=599528696 instance=ExtResource("1_fsqqj")]
 
