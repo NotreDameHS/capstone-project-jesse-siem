@@ -34,14 +34,6 @@ texture = ExtResource("3_sglur")
 position = Vector2(10, -2)
 shape = SubResource("CircleShape2D_sglur")
 
-[node name="Timer" type="Timer" parent="." unique_id=1982847277]
-
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1287107489]
-position = Vector2(55, 28)
-
-[node name="Marker2D2" type="Marker2D" parent="." unique_id=331788950]
-position = Vector2(55, -27)
-
 [node name="UI" type="Control" parent="." unique_id=721947722]
 layout_mode = 3
 anchors_preset = 0
@@ -59,3 +51,13 @@ theme_override_styles/background = SubResource("StyleBoxFlat_sglur")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bls4j")
 value = 50.0
 show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1982847277]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1287107489]
+position = Vector2(55, 28)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=331788950]
+position = Vector2(55, -27)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

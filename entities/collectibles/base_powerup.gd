@@ -1,8 +1,7 @@
 extends Area2D
 
 
-func _on_area_entered(area: Area2D) -> void:
-	queue_free()
+
 
 
 func _ready() -> void:
@@ -23,3 +22,7 @@ func play_floating_animation() -> void:
 	tween.tween_property(sprite_2d, "position", position_offset, duration)
 	
 	tween.tween_property(sprite_2d,"position", -1.0 * position_offset, duration)
+
+
+func _on_area_entered(area: Area2D) -> void:
+	queue_free()

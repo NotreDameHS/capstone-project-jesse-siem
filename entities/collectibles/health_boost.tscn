@@ -7,14 +7,15 @@
 radius = 17.0
 height = 36.34392
 
-[node name="Health" unique_id=509468964 groups=["Health"] instance=ExtResource("1_agr50")]
+[node name="Health" unique_id=509468964 groups=["health_pack"] instance=ExtResource("1_agr50")]
 collision_layer = 2
+monitorable = true
 
-[node name="Sprite2D" parent="." index="0" unique_id=722218294]
+[node name="Sprite2D" parent="." index="0" unique_id=722218294 groups=["health_pack"]]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_s3w67")
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]
+[node name="CollisionShape2D" parent="." index="1" unique_id=1810347254 groups=["health_pack"]]
 position = Vector2(-1, 0)
 skew = 0.49392816
 shape = SubResource("CapsuleShape2D_v37fs")
