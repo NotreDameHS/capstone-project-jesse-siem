@@ -7,6 +7,10 @@ class_name Enemy extends Area2D
 @onready var timer = $Timer
 @onready var spawn_point = $Marker2D
 @export var enemy_speed := 20.0  # enemy speed
+@export var is_boss := false
+var rotation_speed := 4.0
+
+
 
 # Signal
 signal enemy_died
@@ -22,22 +26,37 @@ func _ready() -> void:
 	timer.wait_time = 1.0
 	timer.start()
 
+
+		
+		
+		
 func _physics_process(delta: float) -> void:
 	if player == null:
 		return
-		
 	
-	# Finds player and moves towards player
-	look_at(player.global_position)
-	rotation += deg_to_rad(90)
-	direction = (player.global_position - global_position).normalized()
-	var velocity := (direction * enemy_speed)
-	global_position += (velocity * delta)
+	if is_boss:
+		rotation += rotation_speed * delta
+		direction = (player.global_position - global_position).normalized()
+		var velocity := (direction * enemy_speed)
+		global_position += (velocity * delta)
+	
+	
+	else:	
+		# Finds player and moves towards player
+		look_at(player.global_position)
+		rotation += deg_to_rad(90)
+		direction = (player.global_position - global_position).normalized()
+		var velocity := (direction * enemy_speed)
+		global_position += (velocity * delta)
 	
 
 func shoot_at_player() -> void:
 	if player == null:
 		return
+		
+		
+		
+		
 	# Instantiate and adds projectile (bullet) to scene
 	var projectile = projectile_scene.instantiate()
 	get_tree().current_scene.add_child(projectile)

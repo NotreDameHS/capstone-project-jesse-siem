@@ -3,13 +3,35 @@
 [ext_resource type="PackedScene" uid="uid://bdbkdy088g4uq" path="res://entities/enemies/base_enemy.tscn" id="1_lxvf3"]
 [ext_resource type="Texture2D" uid="uid://c6gtuao71f0t6" path="res://entities/enemies/Final_Boss.png" id="2_ankbe"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ankbe"]
+radius = 66.007576
+
 [node name="Final Boss" unique_id=1876794493 instance=ExtResource("1_lxvf3")]
+is_boss = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=1157652375]
 texture = ExtResource("2_ankbe")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1327448658]
+visible = false
+shape = SubResource("CircleShape2D_ankbe")
 
 [node name="HealthBar" parent="UI" parent_id_path=PackedInt32Array(562304321) index="0" unique_id=988119586]
 offset_left = -48.0
 offset_top = -82.0
 offset_right = 50.0
 offset_bottom = -73.0
+
+[node name="Marker2D" parent="." index="4" unique_id=2004310526]
+position = Vector2(44, -42)
+
+[node name="Marker2D2" type="Marker2D" parent="." index="5" unique_id=1880521438]
+position = Vector2(43, 44)
+
+[node name="Marker2D3" type="Marker2D" parent="." index="6" unique_id=1376774246]
+position = Vector2(-43, 43)
+
+[node name="Marker2D4" type="Marker2D" parent="." index="7" unique_id=513139587]
+position = Vector2(-44, -42)
+
+[node name="Camera2D" type="Camera2D" parent="." index="8" unique_id=116050295]
