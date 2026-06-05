@@ -4,8 +4,7 @@ const GAME_OVER_SCREEN = preload("res://ui/game_over_screen.tscn")
 
 
 #inital player health
-var player_health: int = 10
-var player_max_health: int = 10
+
 
 #enemys health
 var BaseEnemy_health: int = 5
@@ -13,16 +12,9 @@ var strongEnemy_health: int = 10
 var finalBoss_health: int = 15
 
 
-func lose_life() -> void:
-	player_health -= 1
-	health_changed.emit(player_health)
-	if player_health <= 0:
-		show_end_screen("Game Over")
 
-func add_life() -> void:
-	player_health +=1
-	health_changed.emit(player_health)
-	
+
+
 func BaseEnemy_lose_life() -> void:
 	BaseEnemy_health -= 1
 	health_changed.emit(BaseEnemy_health)

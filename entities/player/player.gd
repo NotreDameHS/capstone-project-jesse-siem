@@ -8,7 +8,7 @@ var mouse_global_pos: Vector2
 var shooter_1_state: bool = true
 var shooter_2_state: bool = false
 var player_max_health := 100.0
-var player_health := player_max_health
+var player_health := 50.0
 var kill_count: int = 0
 
 @export var projectile_scene: PackedScene
@@ -19,9 +19,9 @@ var kill_count: int = 0
 
 func _ready() -> void:
 	kill_count = 0
-	player_health = player_max_health
 	health_bar.max_value = player_max_health
 	health_bar.value = player_health
+	set_health(player_health)
 	
 func _process(delta: float) -> void:
 	# Rotates ship 90 degrees to the right to make RIGHT = right
@@ -97,4 +97,18 @@ func _take_damage(amount: float) -> void:
 	
 func kill_amount(kill_count: int) -> void:
 	pass
-	
+
+
+func set_health(new_health: float) -> void:
+	player_health = new_health
+	# Find the bar and update its 'value' property
+	health_bar.value = player_health
+
+
+
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is health_pack:
+		set_health(player_health + 15)
+		print(player_health)
