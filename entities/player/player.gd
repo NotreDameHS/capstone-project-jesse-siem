@@ -21,6 +21,7 @@ func _ready() -> void:
 	kill_count = 0
 	health_bar.max_value = player_max_health
 	health_bar.value = player_health
+	set_health(player_health)
 	
 func _process(delta: float) -> void:
 	# Rotates ship 90 degrees to the right to make RIGHT = right
@@ -98,13 +99,16 @@ func kill_amount(kill_count: int) -> void:
 	pass
 
 
-func set_health(new_health: int) -> void:
+func set_health(new_health: float) -> void:
 	player_health = new_health
 	# Find the bar and update its 'value' property
 	health_bar.value = player_health
 
 
+
+
+
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("health_pack"):
+	if area is health_pack:
 		set_health(player_health + 15)
-		print("health pack")
+		print(player_health)

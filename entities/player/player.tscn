@@ -25,6 +25,8 @@ corner_radius_bottom_left = 8
 script = ExtResource("1_abrql")
 projectile_scene = ExtResource("2_sglur")
 
+[node name="Timer" type="Timer" parent="." unique_id=1982847277]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=307278302]
 rotation = 4.712389
 scale = Vector2(0.5, 0.524)
@@ -51,8 +53,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_sglur")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bls4j")
 value = 50.0
 show_percentage = false
-
-[node name="Timer" type="Timer" parent="." unique_id=1982847277]
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1287107489]
 position = Vector2(55, 28)

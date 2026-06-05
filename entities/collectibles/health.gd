@@ -1,4 +1,4 @@
-extends Area2D
+class_name health_pack extends Area2D
 
 
 
@@ -23,8 +23,8 @@ func play_floating_animation() -> void:
 	
 	tween.tween_property(sprite_2d,"position", -1.0 * position_offset, duration)
 
-func _on_area_entered(area: Area2D) -> void: 
-	
-		
-		queue_free()
+func _on_area_entered(area: Area2D) -> void:
+	print("area entered by ")
+	print(area)
+	queue_free()
 	

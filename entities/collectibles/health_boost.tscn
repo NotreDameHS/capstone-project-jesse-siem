@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxd5f0phlnaix"]
 
 [ext_resource type="PackedScene" uid="uid://qmo03pg7v4cu" path="res://entities/collectibles/base_powerup.tscn" id="1_agr50"]
+[ext_resource type="Script" uid="uid://b8wh7w5rmlejk" path="res://entities/collectibles/health.gd" id="2_rg0m3"]
 [ext_resource type="Texture2D" uid="uid://igsvxek4mw4k" path="res://entities/collectibles/pill_red.png" id="2_s3w67"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v37fs"]
@@ -10,6 +11,7 @@ height = 36.34392
 [node name="Health" unique_id=509468964 groups=["health_pack"] instance=ExtResource("1_agr50")]
 collision_layer = 2
 monitorable = true
+script = ExtResource("2_rg0m3")
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294 groups=["health_pack"]]
 scale = Vector2(1.5, 1.5)
