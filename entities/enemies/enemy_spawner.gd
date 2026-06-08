@@ -6,7 +6,7 @@ extends Node2D
 @export var round_1_enemy_spawns := 1
 @export var round_2_enemy_spawns := 8
 @onready var timer := $Timer
-@onready var spawn_point := $Marker2D
+@onready var enemy_spawn_point := $Marker2D
 var enemies_to_be_spawned := 0
 
 
@@ -33,7 +33,7 @@ func spawn_enemy() -> void:
 		print("Beginning Round 1!")
 		var enemy_round_1 = round_1_enemies.instantiate()
 		enemy_round_1.enemy_died.connect(_on_enemy_died)
-		enemy_round_1.global_position = spawn_point.global_position
+		enemy_round_1.global_position = enemy_spawn_point.global_position
 		get_tree().current_scene.add_child(enemy_round_1)
 		enemies_spawned += 1
 		enemies_alive += 1
@@ -42,7 +42,7 @@ func spawn_enemy() -> void:
 		print("Beginning Round 2!")
 		var enemy_round_2 = round_2_enemies.instantiate()
 		enemy_round_2.enemy_died.connect(_on_enemy_died)
-		enemy_round_2.global_position = spawn_point.global_position
+		enemy_round_2.global_position = enemy_spawn_point.global_position
 		get_tree().current_scene.add_child(enemy_round_2)
 		enemies_spawned += 1
 		enemies_alive += 1
@@ -50,8 +50,8 @@ func spawn_enemy() -> void:
 	elif current_round == 3:
 		var final_boss_scene = final_boss.instantiate()
 		final_boss_scene.enemy_died.connect(_on_enemy_died)
-		final_boss_scene.global_position = spawn_point.global_position
-		get_tree().current_Scene.add_child(final_boss_scene)
+		final_boss_scene.global_position = enemy_spawn_point.global_position
+		get_tree().current_scene.add_child(final_boss_scene)
 		timer.stop()
 		enemies_spawned += 1
 		enemies_alive += 1
@@ -72,6 +72,8 @@ func _on_enemy_died() -> void:
 		current_round = 3
 		enemies_to_be_spawned = 1
 	
+	elif enemies_alive == 0 and enemies_spawned == enemies_to_be_spawned and current_round == 3:
+		print("END GAME!")
 	
 	else:
 		pass

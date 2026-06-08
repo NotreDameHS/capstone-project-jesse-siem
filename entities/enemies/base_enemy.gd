@@ -9,7 +9,7 @@ class_name Enemy extends Area2D
 @export var enemy_speed := 20.0  # enemy speed
 @export var is_boss := false
 
-@onready var boss_marker_1 = $Marker2D
+#@onready var boss_marker_1 = $Marker2D
 @onready var boss_marker_2 = $Marker2D2
 
 
@@ -25,6 +25,7 @@ var rotation_speed := 1.0
 
 
 func _ready() -> void:
+	
 	health = max_health
 	health_bar.max_value = max_health
 	health_bar.value = health
@@ -64,12 +65,14 @@ func shoot_at_player() -> void:
 		#print(markers)
 		
 	if is_boss:
+		# Spawning projectile at marker 1
 		var projectile = projectile_scene.instantiate()
 		get_tree().current_scene.add_child(projectile)
-		projectile.global_position = boss_marker_1.global_position
+		projectile.global_position = spawn_point.global_position
 		var direction = (player.global_position - global_position).normalized()
 		projectile.direction = direction
-			
+		
+		# Spawning second projectile at marker 2
 		var projectile_2 = projectile_scene.instantiate()
 		get_tree().current_scene.add_child(projectile_2)
 		projectile.global_position = boss_marker_2.global_position
