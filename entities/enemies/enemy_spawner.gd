@@ -21,6 +21,7 @@ func _ready() -> void:
 	enemies_spawned = 0
 	enemies_alive = 0
 	enemies_to_be_spawned = round_1_enemy_spawns
+	current_round = 1
 	timer.start()
 	
 
@@ -46,6 +47,15 @@ func spawn_enemy() -> void:
 		enemies_spawned += 1
 		enemies_alive += 1
 		
+	elif current_round == 3:
+		var final_boss_scene = final_boss.instantiate()
+		final_boss_scene.enemy_died.connect(_on_enemy_died)
+		final_boss_scene.global_position = spawn_point.global_position
+		get_tree().current_Scene.add_child(final_boss_scene)
+		timer.stop()
+		enemies_spawned += 1
+		enemies_alive += 1
+		
 		
 func _on_enemy_died() -> void:
 	enemies_alive -= 1
@@ -55,6 +65,14 @@ func _on_enemy_died() -> void:
 		current_round = 2
 		enemies_to_be_spawned = round_2_enemy_spawns
 		print("Succesfully changed to round 2 after 5 kills")
+	
+	elif enemies_alive == 0 and enemies_spawned == enemies_to_be_spawned and current_round == 2:
+		enemies_spawned = 0
+		enemies_alive = 0
+		current_round = 3
+		enemies_to_be_spawned = 1
+	
+	
 	else:
 		pass
 

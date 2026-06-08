@@ -9,7 +9,7 @@
 script = ExtResource("1_dfhm5")
 round_1_enemies = ExtResource("2_3pc7k")
 round_2_enemies = ExtResource("3_3pc7k")
-round_1_enemy_spawns = 2
+round_2_enemy_spawns = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2029839213]
 scale = Vector2(2, 2)

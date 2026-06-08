@@ -8,7 +8,7 @@ var direction: Vector2
 
 func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta
-	#rotation = direction.angle()
+	rotation = direction.angle()
 	
 	_distance_traveled += speed * delta
 	

@@ -21,7 +21,6 @@ max_speed = 850.0
 position_smoothing_enabled = true
 
 [node name="Enemy Spawner" parent="." unique_id=53444923 instance=ExtResource("6_744pf")]
-visible = false
 position = Vector2(200, 0)
 
 [node name="Final Boss" parent="." unique_id=1876794493 instance=ExtResource("5_2rjw7")]
