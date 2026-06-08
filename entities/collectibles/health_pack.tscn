@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c5i856n5t0kd0"]
+
+[ext_resource type="PackedScene" uid="uid://qmo03pg7v4cu" path="res://entities/collectibles/base_powerup.tscn" id="1_hp48a"]
+[ext_resource type="Texture2D" uid="uid://igsvxek4mw4k" path="res://entities/collectibles/pill_red.png" id="2_vtdll"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vtdll"]
+radius = 7.7987804
+height = 25.597519
+
+[node name="Health Pack" unique_id=509468964 groups=["health"] instance=ExtResource("1_hp48a")]
+monitorable = true
+
+[node name="Sprite2D" parent="." index="0" unique_id=722218294]
+texture = ExtResource("2_vtdll")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]
+rotation = 0.64053583
+shape = SubResource("CapsuleShape2D_vtdll")

@@ -7,6 +7,7 @@
 radius = 26.0
 
 [node name="Invisible Shield" unique_id=509468964 groups=["Shield"] instance=ExtResource("1_qd2vy")]
+monitorable = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294]
 scale = Vector2(1.5, 1.5)

@@ -3,7 +3,9 @@ signal health_changed(amount: int)
 const GAME_OVER_SCREEN = preload("res://ui/game_over_screen.tscn")
 
 
+
 #inital player health
+var player_health = 100
 
 
 #enemys health

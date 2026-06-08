@@ -8,6 +8,7 @@ radius = 17.0
 
 [node name="Weapon Upgrade" unique_id=509468964 groups=["Weapon"] instance=ExtResource("1_ylk0c")]
 collision_layer = 2
+monitorable = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294]
 texture = ExtResource("2_y820c")

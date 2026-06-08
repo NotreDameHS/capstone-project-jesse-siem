@@ -8,20 +8,22 @@ var mouse_global_pos: Vector2
 var shooter_1_state: bool = true
 var shooter_2_state: bool = false
 var player_max_health := 100.0
-var player_health := 50.0
+var player_health := 100
 var kill_count: int = 0
+var is_invincible = false
 
 @export var projectile_scene: PackedScene
 @onready var spawn_point = $Marker2D
 @onready var spawn_point_2 = $Marker2D2
 @onready var health_bar = $UI/HealthBar
 @onready var ui_node = $UI
+@onready var invincible_timer = $InvincibilityTimer
 
 func _ready() -> void:
 	kill_count = 0
 	health_bar.max_value = player_max_health
 	health_bar.value = player_health
-	set_health(player_health)
+	_set_health(player_health)
 	
 func _process(delta: float) -> void:
 	# Rotates ship 90 degrees to the right to make RIGHT = right
@@ -88,27 +90,50 @@ func _take_damage(amount: float) -> void:
 	if (player_health - amount) <= 0.0:
 		player_health = 0.0
 		#GameManager.show_end_screen("Game Over")
-		
+	if is_invincible:
+		return
+			
 	else:
 		player_health -= amount
 		health_bar.value = player_health
 		print(player_health)
+		
 	
 	
 func kill_amount(kill_count: int) -> void:
 	pass
 
-
-func set_health(new_health: float) -> void:
+func _set_health(new_health: int) -> void:
 	player_health = new_health
 	# Find the bar and update its 'value' property
-	health_bar.value = player_health
+	get_node("UI/HealthBar").value = player_health
+
+
 
 
 
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area is health_pack:
-		set_health(player_health + 15)
+	if area.is_in_group("health"):
+		_set_health(player_health + 10.0)
+		if player_health >= player_max_health:
+			player_health = player_max_health
 		print(player_health)
+		
+	elif area.is_in_group("Shield"):
+		is_invincible = true
+		print("Player is invincible for 10 seconds!")
+		invincible_timer.start()
+		
+	
+	elif area.is_in_group("Weapon"):
+		
+		pass	
+		
+
+
+func _on_invincibility_timer_timeout() -> void:
+	is_invincible = false
+	print("Invincibility powerup is over!")
+	

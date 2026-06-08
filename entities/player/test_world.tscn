@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bbf7kuikxxq8x" path="res://assets/Background skywars.png" id="1_0a782"]
 [ext_resource type="PackedScene" uid="uid://c4qcct1bwxalu" path="res://entities/player/player.tscn" id="1_7w68n"]
 [ext_resource type="PackedScene" uid="uid://dodtw1r4jacq" path="res://entities/collectibles/random_item_placer.tscn" id="1_fsqqj"]
-[ext_resource type="PackedScene" uid="uid://c1ebkuot5vadn" path="res://entities/enemies/final_boss.tscn" id="5_2rjw7"]
 [ext_resource type="PackedScene" uid="uid://bceiqa78rhjv4" path="res://entities/enemies/enemy_spawner.tscn" id="6_744pf"]
 
 [node name="Test_world" type="Node2D" unique_id=1711498285]
@@ -21,7 +20,4 @@ max_speed = 850.0
 position_smoothing_enabled = true
 
 [node name="Enemy Spawner" parent="." unique_id=53444923 instance=ExtResource("6_744pf")]
-visible = false
 position = Vector2(200, 0)
-
-[node name="Final Boss" parent="." unique_id=1876794493 instance=ExtResource("5_2rjw7")]

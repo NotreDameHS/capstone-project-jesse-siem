@@ -25,7 +25,7 @@ corner_radius_bottom_left = 8
 script = ExtResource("1_abrql")
 projectile_scene = ExtResource("2_sglur")
 
-[node name="Timer" type="Timer" parent="." unique_id=1982847277]
+[node name="Weapon_Speed Timer" type="Timer" parent="." unique_id=1982847277]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=307278302]
 rotation = 4.712389
@@ -60,4 +60,9 @@ position = Vector2(55, 28)
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=331788950]
 position = Vector2(55, -27)
 
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=564698621]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
