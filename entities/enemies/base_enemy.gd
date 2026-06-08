@@ -10,11 +10,9 @@ class_name Enemy extends Area2D
 @export var is_boss := false
 
 #@onready var boss_marker_1 = $Marker2D
-#@onready var boss_marker_2 = $Marker2D2
-#@onready var boss_marker_3 = $Marker2D3
-#@onready var boss_marker_4 = $Marker2D4
+@onready var boss_marker_2 = $Marker2D2
 
-@onready var boss_shooter := [$Marker2D, $Marker2D2, $Marker2D3, $Marker2D4]
+
 
 
 # Signal
@@ -27,6 +25,7 @@ var rotation_speed := 1.0
 
 
 func _ready() -> void:
+	
 	health = max_health
 	health_bar.max_value = max_health
 	health_bar.value = health
@@ -43,7 +42,8 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if is_boss:
-		rotation += rotation_speed * delta
+		look_at(player.global_position)
+		rotation += deg_to_rad(90)
 		direction = (player.global_position - global_position).normalized()
 		var velocity := (direction * enemy_speed)
 		global_position += (velocity * delta)
@@ -65,11 +65,19 @@ func shoot_at_player() -> void:
 		#print(markers)
 		
 	if is_boss:
-		for each_shooter in boss_shooter:
-			var projectile = projectile_scene.instantiate()
-			get_tree().current_scene.add_child(projectile)
-			projectile.global_position = each_shooter.global_position
-			projectile.direction = each_shooter.global_transform.x
+		# Spawning projectile at marker 1
+		var projectile = projectile_scene.instantiate()
+		get_tree().current_scene.add_child(projectile)
+		projectile.global_position = spawn_point.global_position
+		var direction = (player.global_position - global_position).normalized()
+		projectile.direction = direction
+		
+		# Spawning second projectile at marker 2
+		var projectile_2 = projectile_scene.instantiate()
+		get_tree().current_scene.add_child(projectile_2)
+		projectile.global_position = boss_marker_2.global_position
+		var direction_2 = (player.global_position - global_position).normalized()
+		projectile_2.direction = direction_2
 		
 	else:
 		# Instantiate and adds projectile (bullet) to scene
