@@ -4,7 +4,8 @@ class_name Boss extends Enemy
 
 @onready var boss_marker_1 = $Marker2D
 @onready var boss_marker_2 = $Marker2D2
-
+@onready var boss_marker_3 = $Marker2D3
+@onready var boss_marker_4 = $Marker2D4
 
 #func _physics_process(delta: float) -> void:
 	#if player == null:
@@ -35,3 +36,11 @@ func shoot_at_player() -> void:
 	projectile_2.global_position = boss_marker_2.global_position
 	var direction_2 = (player.global_position - global_position).normalized()
 	projectile_2.direction = direction_2
+	
+	var projectile_3 = projectile_scene.instantiate()
+	get_tree().current_scene.add_child(projectile_3)
+	projectile_3.global_position = boss_marker_3.global_position
+	var direction_3 = (player.global_position - global_position).normalized()
+	projectile_3.direction = direction_3
+	
+	

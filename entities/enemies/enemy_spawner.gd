@@ -7,14 +7,13 @@ extends Node2D
 @export var round_2_enemy_spawns := 8
 @onready var timer := $Timer
 @onready var enemy_spawn_point := $Marker2D
+
+
 var enemies_to_be_spawned := 0
-
-
-
-
 var enemies_spawned := 0
 var current_round := 1
 var enemies_alive := 0 
+
 
 func _ready() -> void:
 	timer.wait_time = 2.0
