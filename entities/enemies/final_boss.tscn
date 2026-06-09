@@ -12,8 +12,9 @@ radius = 192.00261
 [node name="Final Boss" unique_id=1876794493 instance=ExtResource("1_lxvf3")]
 script = ExtResource("2_4h6wu")
 boss_projectile_scene = ExtResource("3_l6vlm")
+max_health = 500.0
 projectile_scene = ExtResource("3_losl3")
-enemy_speed = 500.0
+enemy_speed = 650.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1157652375]
 scale = Vector2(0.35, 0.35)
@@ -40,3 +41,6 @@ position = Vector2(-110, -59)
 
 [node name="Marker2D4" type="Marker2D" parent="." index="7" unique_id=921075074]
 position = Vector2(110, -59)
+
+[node name="Marker2D5" type="Marker2D" parent="." index="8" unique_id=1331006147]
+position = Vector2(0, -228)

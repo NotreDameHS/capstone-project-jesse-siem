@@ -16,7 +16,7 @@ var enemies_alive := 0
 
 
 func _ready() -> void:
-	timer.wait_time = 2.0
+	timer.wait_time = 4.0
 	enemies_spawned = 0
 	enemies_alive = 0
 	enemies_to_be_spawned = round_1_enemy_spawns

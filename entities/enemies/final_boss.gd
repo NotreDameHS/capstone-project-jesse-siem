@@ -6,22 +6,11 @@ class_name Boss extends Enemy
 @onready var boss_marker_2 = $Marker2D2
 @onready var boss_marker_3 = $Marker2D3
 @onready var boss_marker_4 = $Marker2D4
+@onready var boss_marker_5 = $Marker2D5
 @export var boss_projectile_scene: PackedScene
 
 
 
-#func _physics_process(delta: float) -> void:
-	#if player == null:
-		#return
-#
-	#look_at(player.global_position)
-	#rotation += deg_to_rad(90)
-	#direction = (player.global_position - global_position).normalized()
-	#var velocity := (direction * enemy_speed)
-	#global_position += (velocity * delta)
-	
-#func _ready():
-	#timer.wait_time = 1.0
 	
 	
 func shoot_at_player() -> void:
@@ -43,6 +32,14 @@ func shoot_at_player() -> void:
 	var direction_2 = (player.global_position - global_position).normalized()
 	projectile_2.direction = direction_2
 	
+	var projectile_5 = projectile_scene.instantiate()
+	get_tree().current_scene.add_child(projectile_5)
+	projectile_5.global_position = boss_marker_5.global_position
+	var direction_5 = (player.global_position - global_position).normalized()
+	projectile_5.direction = direction_5
+	
+	
+	
 	var projectile_3 = boss_projectile_scene.instantiate()
 	get_tree().current_scene.add_child(projectile_3)
 	projectile_3.global_position = boss_marker_3.global_position
@@ -54,3 +51,6 @@ func shoot_at_player() -> void:
 	projectile_4.global_position = boss_marker_4.global_position
 	var direction_4 = (player.global_position - global_position).normalized()
 	projectile_4.direction = direction_4
+	
+	
+	
