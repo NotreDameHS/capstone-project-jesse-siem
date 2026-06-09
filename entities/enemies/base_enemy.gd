@@ -1,18 +1,12 @@
 class_name Enemy extends Area2D
 # 
 @export var max_health := 100.0
-@export var health = max_health
+@onready var health = max_health
 @onready var health_bar := $UI/HealthBar
 @export var projectile_scene: PackedScene
 @onready var timer = $Timer
 @onready var spawn_point = $Marker2D
 @export var enemy_speed := 20.0  # enemy speed
-@export var is_boss := false
-
-#@onready var boss_marker_1 = $Marker2D
-@onready var boss_marker_2 = $Marker2D2
-
-
 
 
 # Signal
@@ -40,22 +34,20 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if player == null:
 		return
+	#
+	#if is_boss:
+		#look_at(player.global_position)
+		#rotation += deg_to_rad(90)
+		#direction = (player.global_position - global_position).normalized()
+		#var velocity := (direction * enemy_speed)
+		#global_position += (velocity * delta)
 	
-	if is_boss:
-		look_at(player.global_position)
-		rotation += deg_to_rad(90)
-		direction = (player.global_position - global_position).normalized()
-		var velocity := (direction * enemy_speed)
-		global_position += (velocity * delta)
-	
-	
-	else:	
-		# Finds player and moves towards player
-		look_at(player.global_position)
-		rotation += deg_to_rad(90)
-		direction = (player.global_position - global_position).normalized()
-		var velocity := (direction * enemy_speed)
-		global_position += (velocity * delta)
+	# Finds player and moves towards player
+	look_at(player.global_position)
+	rotation += deg_to_rad(90)
+	direction = (player.global_position - global_position).normalized()
+	var velocity := (direction * enemy_speed)
+	global_position += (velocity * delta)
 	
 
 func shoot_at_player() -> void:
@@ -63,29 +55,13 @@ func shoot_at_player() -> void:
 		return
 	#for markers in boss_shooter:
 		#print(markers)
-		
-	if is_boss:
-		# Spawning projectile at marker 1
-		var projectile = projectile_scene.instantiate()
-		get_tree().current_scene.add_child(projectile)
-		projectile.global_position = spawn_point.global_position
-		var direction = (player.global_position - global_position).normalized()
-		projectile.direction = direction
-		
-		# Spawning second projectile at marker 2
-		var projectile_2 = projectile_scene.instantiate()
-		get_tree().current_scene.add_child(projectile_2)
-		projectile.global_position = boss_marker_2.global_position
-		var direction_2 = (player.global_position - global_position).normalized()
-		projectile_2.direction = direction_2
-		
-	else:
-		# Instantiate and adds projectile (bullet) to scene
-		var projectile = projectile_scene.instantiate()
-		get_tree().current_scene.add_child(projectile)
-		projectile.global_position = spawn_point.global_position
-		var direction = (player.global_position - global_position).normalized()
-		projectile.direction = direction
+	
+	# Instantiate and adds projectile (bullet) to scene
+	var projectile = projectile_scene.instantiate()
+	get_tree().current_scene.add_child(projectile)
+	projectile.global_position = spawn_point.global_position
+	var direction = (player.global_position - global_position).normalized()
+	projectile.direction = direction
 	
 
 func _take_damage(amount: float) -> void:
@@ -103,10 +79,10 @@ func _take_damage(amount: float) -> void:
 		get_tree().current_scene.add_child(damage_indicator)
 		damage_indicator.global_position = global_position
 		damage_indicator.display_damage(amount)
-		
-		
-		
-		
+
+
+
+
 
 func _on_timer_timeout() -> void:
 	# call shoot method when timer finishes

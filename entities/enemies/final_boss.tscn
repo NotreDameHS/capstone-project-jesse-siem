@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://c1ebkuot5vadn"]
 
 [ext_resource type="PackedScene" uid="uid://bdbkdy088g4uq" path="res://entities/enemies/base_enemy.tscn" id="1_lxvf3"]
-[ext_resource type="PackedScene" uid="uid://wkwcwmp63uih" path="res://entities/enemies/enemy_laser.tscn" id="2_4h6wu"]
+[ext_resource type="Script" uid="uid://c8jvu30wmuufi" path="res://entities/enemies/final_boss.gd" id="2_4h6wu"]
 [ext_resource type="Texture2D" uid="uid://c1ys8tpqakrk0" path="res://entities/enemies/PNG image.png" id="3_4h6wu"]
+[ext_resource type="PackedScene" uid="uid://wkwcwmp63uih" path="res://entities/enemies/enemy_laser.tscn" id="3_losl3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ankbe"]
 radius = 192.00261
 
 [node name="Final Boss" unique_id=1876794493 instance=ExtResource("1_lxvf3")]
-max_health = 500.0
-projectile_scene = ExtResource("2_4h6wu")
-is_boss = true
+script = ExtResource("2_4h6wu")
+projectile_scene = ExtResource("3_losl3")
+enemy_speed = 20.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1157652375]
 scale = Vector2(0.4, 0.4)
