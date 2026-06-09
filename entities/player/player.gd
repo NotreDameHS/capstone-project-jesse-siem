@@ -11,6 +11,7 @@ var player_max_health := 100.0
 var player_health := 100
 var kill_count: int = 0
 var is_invincible = false
+var boost_weapon = false
 
 @export var projectile_scene: PackedScene
 @onready var spawn_point = $Marker2D
@@ -18,6 +19,8 @@ var is_invincible = false
 @onready var health_bar = $UI/HealthBar
 @onready var ui_node = $UI
 @onready var invincible_timer = $InvincibilityTimer
+@export var upgrade_projectile_scene: PackedScene
+@onready var weapon_timer = $WeaponTimer
 
 func _ready() -> void:
 	kill_count = 0
@@ -89,14 +92,14 @@ func shoot() -> void:
 func _take_damage(amount: float) -> void:
 	if (player_health - amount) <= 0.0:
 		player_health = 0.0
-		#GameManager.show_end_screen("Game Over")
+		GameManager.show_end_screen("Game Over!")
 	if is_invincible:
 		return
 			
 	else:
 		player_health -= amount
 		health_bar.value = player_health
-		print(player_health)
+		print("Your Health is: " + str(player_health))
 		
 	
 	
@@ -119,21 +122,30 @@ func _on_area_entered(area: Area2D) -> void:
 		_set_health(player_health + 10.0)
 		if player_health >= player_max_health:
 			player_health = player_max_health
-		print(player_health)
+		print("Your health is " + str(player_health))
 		
 	elif area.is_in_group("Shield"):
 		is_invincible = true
-		print("Player is invincible for 10 seconds!")
+		print("Invincible For 10 Seconds!")
 		invincible_timer.start()
 		
 	
 	elif area.is_in_group("Weapon"):
-		
+		projectile_scene = upgrade_projectile_scene
+		boost_weapon = true
+		print("Weapon Upgrade Started!")
+		weapon_timer.start()
 		pass	
 		
 
 
 func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
-	print("Invincibility powerup is over!")
+	print("Invincibility Powerup Is Over!")
 	
+
+
+func _on_weapon_speed_timer_timeout() -> void:
+	boost_weapon = false
+	projectile_scene = preload("res://entities/projectiles/base_laser.tscn")
+	print("Weapon Upgrade Over!")

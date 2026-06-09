@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://d3u3phi1g2yq0" path="res://entities/collectibles/things_gold.png" id="2_y820c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y820c"]
-radius = 17.0
+radius = 25.0
 
 [node name="Weapon Upgrade" unique_id=509468964 groups=["Weapon"] instance=ExtResource("1_ylk0c")]
-collision_layer = 2
 monitorable = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_y820c")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]

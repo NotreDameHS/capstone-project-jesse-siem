@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b7kjwoxrkayr3"]
 
 [ext_resource type="Texture2D" uid="uid://bbf7kuikxxq8x" path="res://assets/Background skywars.png" id="1_0a782"]
+[ext_resource type="PackedScene" uid="uid://fpvtm4x78geg" path="res://ui/game_start_screen.tscn" id="1_2rjw7"]
 [ext_resource type="PackedScene" uid="uid://c4qcct1bwxalu" path="res://entities/player/player.tscn" id="1_7w68n"]
 [ext_resource type="PackedScene" uid="uid://dodtw1r4jacq" path="res://entities/collectibles/random_item_placer.tscn" id="1_fsqqj"]
 [ext_resource type="PackedScene" uid="uid://bceiqa78rhjv4" path="res://entities/enemies/enemy_spawner.tscn" id="6_744pf"]
@@ -21,3 +22,5 @@ position_smoothing_enabled = true
 
 [node name="Enemy Spawner" parent="." unique_id=53444923 instance=ExtResource("6_744pf")]
 position = Vector2(200, 0)
+
+[node name="GameStartScreen" parent="." unique_id=693857458 instance=ExtResource("1_2rjw7")]

@@ -1,5 +1,5 @@
 class_name Enemy extends Area2D
-# 
+
 @export var max_health := 100.0
 @export var health = max_health
 @onready var health_bar := $UI/HealthBar

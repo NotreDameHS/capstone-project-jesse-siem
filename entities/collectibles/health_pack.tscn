@@ -4,15 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://igsvxek4mw4k" path="res://entities/collectibles/pill_red.png" id="2_vtdll"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vtdll"]
-radius = 7.7987804
-height = 25.597519
+radius = 11.399359
+height = 39.183228
 
 [node name="Health Pack" unique_id=509468964 groups=["health"] instance=ExtResource("1_hp48a")]
 monitorable = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_vtdll")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]
-rotation = 0.64053583
+rotation = 0.7853982
 shape = SubResource("CapsuleShape2D_vtdll")

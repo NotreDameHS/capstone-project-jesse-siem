@@ -1,5 +1,5 @@
 extends Node2D
-
+@onready var timer = $Timer
 # Cache the preloaded scenes for better performance
 var item_scenes: Array[PackedScene] = [
 	preload("res://entities/collectibles/health_pack.tscn"),
