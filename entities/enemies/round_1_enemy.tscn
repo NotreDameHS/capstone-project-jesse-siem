@@ -9,7 +9,7 @@ radius = 56.0
 
 [node name="Round 1 Enemy" unique_id=1876794493 instance=ExtResource("1_rc0kn")]
 projectile_scene = ExtResource("2_ty17m")
-enemy_speed = 600.0
+enemy_speed = 500.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1157652375]
 texture = ExtResource("3_ty17m")

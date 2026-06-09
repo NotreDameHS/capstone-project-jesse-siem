@@ -24,6 +24,7 @@ corner_radius_bottom_left = 8
 
 [node name="Player" type="Area2D" unique_id=843083428 groups=["Player"]]
 script = ExtResource("1_abrql")
+player_speed = 1100.0
 projectile_scene = ExtResource("2_sglur")
 upgrade_projectile_scene = ExtResource("3_bls4j")
 

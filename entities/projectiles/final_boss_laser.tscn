@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://xyfymg7bfb0g"]
+
+[ext_resource type="PackedScene" uid="uid://bt46ka2gvoal5" path="res://entities/projectiles/enemy_projectile.tscn" id="1_x5mpb"]
+[ext_resource type="Texture2D" uid="uid://b8vpnw6hr4y6g" path="res://entities/projectiles/laserRed06.png" id="2_xwknn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hne5d"]
+radius = 7.0
+height = 38.0
+
+[node name="Final_boss Laser" unique_id=1691801412 instance=ExtResource("1_x5mpb")]
+speed = 2000
+
+[node name="Sprite2D" parent="." index="0" unique_id=773111218]
+rotation = 1.5707964
+texture = ExtResource("2_xwknn")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1526864810]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_hne5d")

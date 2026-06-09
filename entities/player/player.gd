@@ -1,7 +1,8 @@
 class_name Player extends Area2D
 
-var normal_speed := 900.0
-@export var max_speed := normal_speed
+
+
+@export var player_speed := 900.0
 var velocity := Vector2(0, 0)
 var steering_factor := 10.0
 var mouse_global_pos: Vector2
@@ -11,7 +12,6 @@ var player_max_health := 100.0
 var player_health := 100
 var kill_count: int = 0
 var is_invincible = false
-var boost_weapon = false
 
 @export var projectile_scene: PackedScene
 @onready var spawn_point = $Marker2D
@@ -19,8 +19,6 @@ var boost_weapon = false
 @onready var health_bar = $UI/HealthBar
 @onready var ui_node = $UI
 @onready var invincible_timer = $InvincibilityTimer
-@export var upgrade_projectile_scene: PackedScene
-@onready var weapon_timer = $WeaponTimer
 
 func _ready() -> void:
 	kill_count = 0
@@ -51,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	if direction.length() > 1.0:
 		direction = direction.normalized()
 		
-	var desired_velocity := (direction * max_speed)
+	var desired_velocity := (direction * player_speed)
 	var steering_vector := (desired_velocity - velocity)
 	velocity += (steering_vector * steering_factor * delta)
 	global_position += (velocity * delta)
@@ -92,15 +90,17 @@ func shoot() -> void:
 func _take_damage(amount: float) -> void:
 	if (player_health - amount) <= 0.0:
 		player_health = 0.0
-		GameManager.show_end_screen("Game Over!")
+		queue_free()
+		GameManager.show_end_screen("Game Over")
+		
 	if is_invincible:
 		return
 			
 	else:
 		player_health -= amount
 		health_bar.value = player_health
-		print("Your Health is: " + str(player_health))
-		
+		print(player_health)
+		spawn_poof()
 	
 	
 func kill_amount(kill_count: int) -> void:
@@ -122,30 +122,61 @@ func _on_area_entered(area: Area2D) -> void:
 		_set_health(player_health + 10.0)
 		if player_health >= player_max_health:
 			player_health = player_max_health
-		print("Your health is " + str(player_health))
+		print(player_health)
 		
 	elif area.is_in_group("Shield"):
 		is_invincible = true
-		print("Invincible For 10 Seconds!")
+		print("Player is invincible for 10 seconds!")
 		invincible_timer.start()
 		
 	
 	elif area.is_in_group("Weapon"):
-		projectile_scene = upgrade_projectile_scene
-		boost_weapon = true
-		print("Weapon Upgrade Started!")
-		weapon_timer.start()
+		
 		pass	
 		
 
 
 func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
-	print("Invincibility Powerup Is Over!")
+	print("Invincibility powerup is over!")
 	
 
+func spawn_poof():
+	# Creating newCPUParticles2D node
+	var particles = CPUParticles2D.new()
+	get_tree().current_scene.add_child(particles)
+	particles.global_position = global_position
+	
+	
+# Create a particle cloud (a "poof" of particles from the center)
+	particles.z_index = 100 
+	particles.z_as_relative = false 
+	particles.amount = 20
+	particles.lifetime = 0.5
+	particles.explosiveness = 1.0
+	particles.one_shot = true
+	particles.scale_amount_min = 10.0 
+	particles.scale_amount_max = 20.0
+	particles.spread = 180.0
+	particles.gravity = Vector2(0, 0)
+	particles.initial_velocity_min = 80.0
+	particles.initial_velocity_max = 150.0
+	particles.damping_min = 50.0 
 
-func _on_weapon_speed_timer_timeout() -> void:
-	boost_weapon = false
-	projectile_scene = preload("res://entities/projectiles/base_laser.tscn")
-	print("Weapon Upgrade Over!")
+	# Design the shape of the cloud (the "poof")
+	var curve = Curve.new()
+	curve.add_point(Vector2(0, 1.0)) 
+	curve.add_point(Vector2(1, 0.0))
+	particles.scale_amount_curve = curve
+
+	# Design the colours of the cloud
+	var gradient = Gradient.new()
+	gradient.add_point(0.0, Color(1, 1, 1, 1)) 
+	gradient.add_point(1.0, Color(1, 1, 1, 0)) 
+	particles.color_ramp = gradient
+
+	particles.emitting = true
+	
+	var timer = get_tree().create_timer(particles.lifetime + 0.5)
+	timer.timeout.connect(particles.queue_free)
+	
