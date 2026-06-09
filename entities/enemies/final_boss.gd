@@ -17,6 +17,9 @@ class_name Boss extends Enemy
 	#var velocity := (direction * enemy_speed)
 	#global_position += (velocity * delta)
 	
+#func _ready():
+	#timer.wait_time = 1.0
+	
 	
 func shoot_at_player() -> void:
 	if player == null:
@@ -43,4 +46,8 @@ func shoot_at_player() -> void:
 	var direction_3 = (player.global_position - global_position).normalized()
 	projectile_3.direction = direction_3
 	
-	
+	var projectile_4 = projectile_scene.instantiate()
+	get_tree().current_scene.add_child(projectile_4)
+	projectile_4.global_position = boss_marker_4.global_position
+	var direction_4 = (player.global_position - global_position).normalized()
+	projectile_4.direction = direction_4
