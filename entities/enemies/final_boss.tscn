@@ -14,7 +14,7 @@ script = ExtResource("2_4h6wu")
 boss_projectile_scene = ExtResource("3_l6vlm")
 max_health = 500.0
 projectile_scene = ExtResource("3_losl3")
-enemy_speed = 650.0
+enemy_speed = 600.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1157652375]
 scale = Vector2(0.35, 0.35)
