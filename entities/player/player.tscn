@@ -23,6 +23,7 @@ corner_radius_bottom_left = 8
 
 [node name="Player" type="Area2D" unique_id=843083428 groups=["Player"]]
 script = ExtResource("1_abrql")
+player_speed = 1100.0
 projectile_scene = ExtResource("2_sglur")
 
 [node name="Weapon_Speed Timer" type="Timer" parent="." unique_id=1982847277]

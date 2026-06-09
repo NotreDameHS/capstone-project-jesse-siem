@@ -1,8 +1,8 @@
 class_name Player extends Area2D
 
 
-@export var max_speed := 10000.0
-var normal_speed := max_speed
+
+@export var player_speed := 900.0
 var velocity := Vector2(0, 0)
 var steering_factor := 10.0
 var mouse_global_pos: Vector2
@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	if direction.length() > 1.0:
 		direction = direction.normalized()
 		
-	var desired_velocity := (direction * max_speed)
+	var desired_velocity := (direction * player_speed)
 	var steering_vector := (desired_velocity - velocity)
 	velocity += (steering_vector * steering_factor * delta)
 	global_position += (velocity * delta)
