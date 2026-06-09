@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bikgfji5h5mlg" path="res://entities/projectiles/laserBlue03.png" id="2_e5rff"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0j0ng"]
-radius = 5.0
+radius = 6.0
 height = 38.0
 
 [node name="LaserUpgrade" unique_id=509468964 instance=ExtResource("1_bepvk")]
@@ -12,10 +12,9 @@ damage = 100
 speed = 300
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294]
+rotation = 1.5707964
 texture = ExtResource("2_e5rff")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1810347254]
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_0j0ng")
-
-[node name="Marker2D" parent="." index="2" unique_id=499472643]
-position = Vector2(8, 0)

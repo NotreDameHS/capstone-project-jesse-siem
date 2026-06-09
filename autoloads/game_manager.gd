@@ -1,7 +1,7 @@
 extends Node
 signal health_changed(amount: int)
 const GAME_OVER_SCREEN = preload("res://ui/game_over_screen.tscn")
-
+const GAME_START_SCREEN = preload("res://ui/game_start_screen.tscn")
 
 
 #inital player health
@@ -34,3 +34,4 @@ func show_end_screen(message: String) -> void:
 	var screen = GAME_OVER_SCREEN.instantiate()
 	get_tree().current_scene.add_child(screen)
 	screen.set_title(message)
+	

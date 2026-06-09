@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3o3yxbp56u4q" path="res://entities/player/player.gd" id="1_abrql"]
 [ext_resource type="PackedScene" uid="uid://dq3d6f65um3t1" path="res://entities/projectiles/base_laser.tscn" id="2_sglur"]
+[ext_resource type="PackedScene" uid="uid://cce5fiaxo57k7" path="res://entities/projectiles/max_laser_upgrade.tscn" id="3_bls4j"]
 [ext_resource type="Texture2D" uid="uid://b3kxlpdu8wdhm" path="res://entities/player/spaceShips_005.png" id="3_sglur"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sglur"]
@@ -25,8 +26,11 @@ corner_radius_bottom_left = 8
 script = ExtResource("1_abrql")
 player_speed = 1100.0
 projectile_scene = ExtResource("2_sglur")
+upgrade_projectile_scene = ExtResource("3_bls4j")
 
-[node name="Weapon_Speed Timer" type="Timer" parent="." unique_id=1982847277]
+[node name="WeaponTimer" type="Timer" parent="." unique_id=1982847277]
+wait_time = 5.0
+one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=307278302]
 rotation = 4.712389
@@ -66,4 +70,5 @@ wait_time = 10.0
 one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="WeaponTimer" to="." method="_on_weapon_speed_timer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

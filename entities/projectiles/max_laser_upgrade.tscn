@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cttfdshuvereb" path="res://entities/projectiles/laserGreen04.png" id="2_k1chh"]
 
 [node name="MaxLaserUpgrade" unique_id=509468964 instance=ExtResource("1_63oa4")]
+damage = 25
+speed = 1000
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294]
 texture = ExtResource("2_k1chh")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
