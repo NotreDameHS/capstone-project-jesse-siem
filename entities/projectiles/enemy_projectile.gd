@@ -71,7 +71,7 @@ func spawn_poof():
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_groups("Player"):
+	if body.is_in_group("Player"):
 		body._take_damage(25.0)
 		_explode()
 	else:

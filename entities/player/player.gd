@@ -12,6 +12,8 @@ var player_max_health := 100.0
 var player_health := 100
 var kill_count: int = 0
 var is_invincible = false
+var rotation_speed := 0.1
+
 
 @export var player_speed := 900.0
 @export var projectile_scene: PackedScene
@@ -42,23 +44,28 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	# Movement for ship
-	var direction := Vector2(0, 0)
-	direction.x = Input.get_axis("move_left", "move_right")
-	direction.y = Input.get_axis("move_up", "move_down")
+	#var direction := Vector2(0, 0)
+	#direction.x = Input.get_axis("move_left", "move_right")
+	#direction.y = Input.get_axis("move_up", "move_down")
+	#
+	#
+	#if direction.length() > 1.0:
+		#direction = direction.normalized()
+	
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	
-	if direction.length() > 1.0:
-		direction = direction.normalized()
 	
-	
-	velocity += direction * player_speed
+	velocity = direction * player_speed
 	move_and_slide()
+	var target_angle = direction.angle()
+	rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
 	
-	
-	#var desired_velocity := (direction * player_speed)
-	#var steering_vector := (desired_velocity - velocity)
-	#velocity += (steering_vector * steering_factor * delta)
+	#var desired_velocity  = (direction * player_speed)
+	#var steering_vector = (desired_velocity - velocity)
+	#velocity = (steering_vector * steering_factor * delta)
 	#global_position += (velocity * delta)
+	
 	ui_node.rotation = -global_rotation
 	
 func shoot() -> void:
