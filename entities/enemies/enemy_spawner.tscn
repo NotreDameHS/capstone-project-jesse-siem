@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://x2bptt5ytwp1" path="res://entities/enemies/enemy_spawner.gd" id="1_dfhm5"]
 [ext_resource type="PackedScene" uid="uid://di644mrhk2gv0" path="res://entities/enemies/round_1_enemy.tscn" id="2_3pc7k"]
-[ext_resource type="Texture2D" uid="uid://om152n2clji2" path="res://entities/enemies/ufoRed.png" id="2_jwcb1"]
 [ext_resource type="PackedScene" uid="uid://c78f4cmtoevq0" path="res://entities/enemies/round_2_enemy.tscn" id="3_3pc7k"]
 [ext_resource type="PackedScene" uid="uid://c1ebkuot5vadn" path="res://entities/enemies/final_boss.tscn" id="4_4iwiw"]
+[ext_resource type="Texture2D" uid="uid://di5n02yhwq7p6" path="res://entities/enemies/spaceBuilding_006.png" id="5_4iwiw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4iwiw"]
+radius = 84.0
 
 [node name="Enemy Spawner" type="Node2D" unique_id=53444923]
 script = ExtResource("1_dfhm5")
@@ -15,13 +18,18 @@ round_1_enemy_spawns = 2
 round_2_enemy_spawns = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2029839213]
-scale = Vector2(3, 3)
-texture = ExtResource("2_jwcb1")
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("5_4iwiw")
 
 [node name="Timer" type="Timer" parent="." unique_id=1977209662]
 wait_time = 2.0
 autostart = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=502614611]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2123479369]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2050333118]
+shape = SubResource("CircleShape2D_4iwiw")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -48,7 +48,8 @@ func _physics_process(delta: float) -> void:
 	
 	if direction.length() > 1.0:
 		direction = direction.normalized()
-		
+	
+	
 	var desired_velocity := (direction * player_speed)
 	var steering_vector := (desired_velocity - velocity)
 	velocity += (steering_vector * steering_factor * delta)

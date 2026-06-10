@@ -12,7 +12,7 @@ radius = 192.00261
 [node name="Final Boss" unique_id=1876794493 instance=ExtResource("1_lxvf3")]
 script = ExtResource("2_4h6wu")
 boss_projectile_scene = ExtResource("3_l6vlm")
-max_health = 500.0
+max_health = 800.0
 projectile_scene = ExtResource("3_losl3")
 enemy_speed = 600.0
 
