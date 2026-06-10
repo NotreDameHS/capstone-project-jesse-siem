@@ -9,7 +9,7 @@ height = 54.0
 
 [node name="Base Laser" unique_id=509468964 instance=ExtResource("1_yw40l")]
 damage = 15
-speed = 1000
+speed = 1600
 
 [node name="Sprite2D" parent="." index="0" unique_id=722218294]
 rotation = 1.5707964
