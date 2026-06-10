@@ -28,6 +28,7 @@ autostart = true
 [node name="Marker2D" type="Marker2D" parent="." unique_id=502614611]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2123479369]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2050333118]
 shape = SubResource("CircleShape2D_4iwiw")

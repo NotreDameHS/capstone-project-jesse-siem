@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://b7kjwoxrkayr3"]
 
-[ext_resource type="Texture2D" uid="uid://bbf7kuikxxq8x" path="res://assets/Background skywars.png" id="1_0a782"]
 [ext_resource type="PackedScene" uid="uid://fpvtm4x78geg" path="res://ui/game_start_screen.tscn" id="1_2rjw7"]
 [ext_resource type="PackedScene" uid="uid://c4qcct1bwxalu" path="res://entities/player/player.tscn" id="1_7w68n"]
+[ext_resource type="Texture2D" uid="uid://cbmi3h3nlrcjl" path="res://assets/textures/black.png" id="1_744pf"]
 [ext_resource type="PackedScene" uid="uid://dodtw1r4jacq" path="res://entities/collectibles/random_item_placer.tscn" id="1_fsqqj"]
 [ext_resource type="PackedScene" uid="uid://bceiqa78rhjv4" path="res://entities/enemies/enemy_spawner.tscn" id="6_744pf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2rjw7"]
+radius = 2575.1748
 
 [node name="Test_world" type="Node2D" unique_id=1711498285]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1706263967]
-scale = Vector2(7, 7)
-texture = ExtResource("1_0a782")
+scale = Vector2(20, 20)
+texture = ExtResource("1_744pf")
 
 [node name="RandomItemPlacer" parent="." unique_id=599528696 instance=ExtResource("1_fsqqj")]
 
@@ -23,3 +26,9 @@ position_smoothing_enabled = true
 position = Vector2(200, 0)
 
 [node name="GameStartScreen" parent="." unique_id=693857458 instance=ExtResource("1_2rjw7")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1096896688]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=631772347]
+shape = SubResource("CircleShape2D_2rjw7")

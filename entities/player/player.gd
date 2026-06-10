@@ -1,9 +1,9 @@
-class_name Player extends Area2D
+class_name Player extends CharacterBody2D
 
 
 
-@export var player_speed := 900.0
-var velocity := Vector2(0, 0)
+
+#var velocity := Vector2(0, 0)
 var steering_factor := 10.0
 var mouse_global_pos: Vector2
 var shooter_1_state: bool = true
@@ -13,6 +13,7 @@ var player_health := 100
 var kill_count: int = 0
 var is_invincible = false
 
+@export var player_speed := 900.0
 @export var projectile_scene: PackedScene
 @onready var spawn_point = $Marker2D
 @onready var spawn_point_2 = $Marker2D2
@@ -50,10 +51,14 @@ func _physics_process(delta: float) -> void:
 		direction = direction.normalized()
 	
 	
-	var desired_velocity := (direction * player_speed)
-	var steering_vector := (desired_velocity - velocity)
-	velocity += (steering_vector * steering_factor * delta)
-	global_position += (velocity * delta)
+	velocity += direction * player_speed
+	move_and_slide()
+	
+	
+	#var desired_velocity := (direction * player_speed)
+	#var steering_vector := (desired_velocity - velocity)
+	#velocity += (steering_vector * steering_factor * delta)
+	#global_position += (velocity * delta)
 	ui_node.rotation = -global_rotation
 	
 func shoot() -> void:
@@ -118,9 +123,37 @@ func _set_health(new_health: int) -> void:
 
 
 
-func _on_area_entered(area: Area2D) -> void:
+#func _on_area_entered(area: Area2D) -> void:
+	#if area.is_in_group("health"):
+		#_set_health(player_health + 20.0)
+		#if player_health >= player_max_health:
+			#player_health = player_max_health
+		#print(player_health)
+		#
+	#elif area.is_in_group("Shield"):
+		#is_invincible = true
+		#print("Player is invincible for 10 seconds!")
+		#invincible_timer.start()
+		#
+	#
+	#elif area.is_in_group("Weapon"):
+		#
+		#pass	
+		#
+
+
+func _on_invincibility_timer_timeout() -> void:
+	is_invincible = false
+	print("Invincibility powerup is over!")
+	
+
+
+	
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("health"):
-		_set_health(player_health + 10.0)
+		_set_health(player_health + 20.0)
 		if player_health >= player_max_health:
 			player_health = player_max_health
 		print(player_health)
@@ -134,13 +167,3 @@ func _on_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("Weapon"):
 		
 		pass	
-		
-
-
-func _on_invincibility_timer_timeout() -> void:
-	is_invincible = false
-	print("Invincibility powerup is over!")
-	
-
-
-	

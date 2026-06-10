@@ -21,12 +21,12 @@ func _explode() -> void:
 
 
 
-func _on_area_entered(area: Area2D) -> void:
-	if area is Player:
-		area._take_damage(25.0)
-		_explode()
-	else:
-		pass
+#func _on_area_entered(area: Area2D) -> void:
+	#if area is Player:
+		#area._take_damage(25.0)
+		#_explode()
+	#else:
+		#pass
 	
 	
 func spawn_poof():
@@ -68,3 +68,11 @@ func spawn_poof():
 	var timer = get_tree().create_timer(particles.lifetime + 0.5)
 	timer.timeout.connect(particles.queue_free)
 	
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_groups("Player"):
+		body._take_damage(25.0)
+		_explode()
+	else:
+		pass
